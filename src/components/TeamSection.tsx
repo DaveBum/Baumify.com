@@ -35,7 +35,7 @@ const TeamSection = () => {
           className="text-center mb-16"
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Meet the <span className="text-gradient-primary">architects</span>
+            Meet the <span className="text-primary">architects</span>
           </h2>
           <p className="text-lg text-secondary max-w-2xl mx-auto">
             Two developers, one relentless focus: ship elite software that scales.
@@ -52,7 +52,7 @@ const TeamSection = () => {
           {/* David Baum - Senior Developer */}
           <motion.div
             variants={cardVariants}
-            className="glass-strong rounded-xl overflow-hidden hover:shadow-glow-primary transition-all duration-500 group"
+            className="glass-strong rounded-xl overflow-hidden hover:shadow-subtle transition-all duration-500 group"
           >
             <div className="relative">
               <img 
@@ -63,8 +63,8 @@ const TeamSection = () => {
               <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" />
               <div className="absolute bottom-4 left-6 right-6">
                 <div className="flex items-center space-x-2 mb-2">
-                  <div className="w-3 h-3 rounded-full bg-accent-spring animate-pulse" />
-                  <span className="text-sm font-mono text-accent-spring">Senior Developer</span>
+                  <div className="w-3 h-3 rounded-full bg-primary animate-pulse" />
+                  <span className="text-sm font-mono text-primary">Senior Developer</span>
                 </div>
               </div>
             </div>
@@ -88,7 +88,7 @@ const TeamSection = () => {
               </div>
 
               <div className="flex flex-col sm:flex-row gap-3">
-                <Button size="sm" variant="hero" asChild className="flex-1">
+                <Button size="sm" variant="minimal" asChild className="flex-1">
                   <a href="tel:+19015176300" className="flex items-center justify-center space-x-2">
                     <Phone className="h-4 w-4" />
                     <span>Call David</span>
@@ -107,7 +107,7 @@ const TeamSection = () => {
           {/* Omer Zalman - Junior Developer */}
           <motion.div
             variants={cardVariants}
-            className="glass-strong rounded-xl overflow-hidden hover:shadow-glow-emerald transition-all duration-500 group"
+            className="glass-strong rounded-xl overflow-hidden hover:shadow-subtle transition-all duration-500 group"
           >
             <div className="relative">
               <img 
@@ -118,8 +118,8 @@ const TeamSection = () => {
               <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" />
               <div className="absolute bottom-4 left-6 right-6">
                 <div className="flex items-center space-x-2 mb-2">
-                  <div className="w-3 h-3 rounded-full bg-accent-emerald animate-pulse" />
-                  <span className="text-sm font-mono text-accent-emerald">Junior Developer</span>
+                  <div className="w-3 h-3 rounded-full bg-secondary animate-pulse" />
+                  <span className="text-sm font-mono text-secondary">Junior Developer</span>
                 </div>
               </div>
             </div>
@@ -132,10 +132,10 @@ const TeamSection = () => {
               </p>
               
               <div className="mb-6">
-                <div className="text-sm font-semibold text-accent-emerald mb-2">Specializations</div>
+                <div className="text-sm font-semibold text-secondary mb-2">Specializations</div>
                 <div className="flex flex-wrap gap-2">
                   {["Frontend Engineering", "CI/CD Pipelines", "Quality Assurance", "API Integration"].map((skill) => (
-                    <span key={skill} className="px-3 py-1 bg-accent-emerald/10 text-accent-emerald text-xs rounded-full">
+                    <span key={skill} className="px-3 py-1 bg-secondary/10 text-secondary text-xs rounded-full">
                       {skill}
                     </span>
                   ))}
@@ -143,8 +143,8 @@ const TeamSection = () => {
               </div>
 
               <div className="flex flex-col sm:flex-row gap-3">
-                <Button size="sm" variant="gradient-emerald" asChild className="flex-1">
-                  <a href="mailto:omer@byteeffect.com" className="flex items-center justify-center space-x-2">
+                <Button size="sm" variant="minimal" asChild className="flex-1">
+                  <a href="mailto:omer@baumify.com" className="flex items-center justify-center space-x-2">
                     <Mail className="h-4 w-4" />
                     <span>Email Omer</span>
                   </a>
@@ -169,7 +169,7 @@ const TeamSection = () => {
           className="mt-20 text-center"
         >
           <div className="glass-strong rounded-xl p-8 max-w-3xl mx-auto">
-            <h3 className="text-xl font-semibold mb-4 text-gradient-emerald">Our Philosophy</h3>
+            <h3 className="text-xl font-semibold mb-4">Our Philosophy</h3>
             <p className="text-secondary leading-relaxed">
               <span className="font-semibold text-foreground">Craft.</span> Every line of code matters. 
               <span className="font-semibold text-foreground"> Velocity.</span> Ship fast, iterate faster. 

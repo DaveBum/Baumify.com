@@ -52,7 +52,7 @@ const Hero = () => {
           }}
         />
         <motion.div 
-          className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-accent-violet/10 rounded-full blur-3xl"
+          className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-secondary/5 rounded-full blur-3xl"
           animate={{
             opacity: [0.3, 0.6, 0.3],
             scale: [1, 1.05, 1],
@@ -65,7 +65,7 @@ const Hero = () => {
           }}
         />
         <motion.div 
-          className="absolute top-1/2 right-1/3 w-64 h-64 bg-accent-emerald/10 rounded-full blur-3xl"
+          className="absolute top-1/2 right-1/3 w-64 h-64 bg-muted/5 rounded-full blur-3xl"
           animate={{
             opacity: [0.3, 0.6, 0.3],
             scale: [1, 1.05, 1],
@@ -88,7 +88,7 @@ const Hero = () => {
         {/* Badge */}
         <motion.div variants={itemVariants} className="mb-8">
           <div className="inline-flex items-center space-x-2 glass px-4 py-2 rounded-full">
-            <div className="w-2 h-2 rounded-full bg-accent-spring animate-pulse" />
+            <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
             <span className="text-sm font-mono text-muted-foreground">
               Available for new projects
             </span>
@@ -101,7 +101,7 @@ const Hero = () => {
             We architect, design,{" "}
             <br className="hidden md:block" />
             and ship{" "}
-            <span className="text-gradient-primary">elite software</span>
+            <span className="text-primary">elite software</span>
             —fast.
           </h1>
         </motion.div>
@@ -120,7 +120,7 @@ const Hero = () => {
           <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6">
             <Button 
               size="lg" 
-              variant="hero"
+              variant="minimal"
               asChild 
               className="min-w-[160px]"
             >
@@ -144,7 +144,7 @@ const Hero = () => {
             
             <Button 
               size="lg" 
-              variant="gradient-emerald"
+              variant="minimal"
               asChild 
               className="min-w-[180px]"
             >
@@ -159,33 +159,30 @@ const Hero = () => {
         {/* Value Proposition Cards */}
         <motion.div variants={itemVariants} className="mb-16">
           <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
-            {[
-              {
-                icon: Target,
-                title: "Design that converts",
-                description: "User-centered experiences that drive measurable results",
-                gradient: "bg-gradient-primary",
-              },
-              {
-                icon: Code2,
-                title: "Systems that scale", 
-                description: "Architecture built for growth and performance",
-                gradient: "bg-gradient-emerald",
-              },
-              {
-                icon: Zap,
-                title: "Velocity that compounds",
-                description: "Ship MVPs in weeks, iterate at lightning speed",
-                gradient: "bg-gradient-primary",
-              },
-            ].map((item, index) => (
+              {[
+                {
+                  icon: Target,
+                  title: "Design that converts",
+                  description: "User-centered experiences that drive measurable results",
+                },
+                {
+                  icon: Code2,
+                  title: "Systems that scale", 
+                  description: "Architecture built for growth and performance",
+                },
+                {
+                  icon: Zap,
+                  title: "Velocity that compounds",
+                  description: "Ship MVPs in weeks, iterate at lightning speed",
+                },
+              ].map((item, index) => (
               <motion.div
                 key={item.title}
                 className="glass-strong rounded-xl p-6 hover:shadow-elegant transition-all duration-300 group cursor-pointer"
                 whileHover={{ scale: 1.02, y: -5 }}
                 transition={{ duration: 0.2 }}
               >
-                <div className={`inline-flex p-3 rounded-lg ${item.gradient} mb-4`}>
+                <div className={`inline-flex p-3 rounded-lg bg-gradient-subtle mb-4`}>
                   <item.icon className="h-6 w-6 text-white" />
                 </div>
                 <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors">

@@ -42,9 +42,9 @@ const Navigation = () => {
         >
         {/* Logo */}
         <Link to="/" className="flex items-center space-x-3">
-          <img src={logo} alt="The Byte Effect" className="h-8 w-auto filter invert" />
-          <span className="text-xl font-semibold text-gradient-primary">
-            The Byte Effect
+          <img src={logo} alt="Baumify" className="h-8 w-auto filter invert" />
+          <span className="text-xl font-semibold">
+            Baumify
           </span>
         </Link>
 
@@ -79,7 +79,7 @@ const Navigation = () => {
               <span>Call Now</span>
             </a>
           </Button>
-          <Button variant="hero" size="sm" asChild>
+          <Button variant="minimal" size="sm" asChild>
             <a href="mailto:david.baum461@gmail.com" className="flex items-center space-x-2">
               <Mail className="h-4 w-4" />
               <span>Email Us</span>
@@ -128,7 +128,7 @@ const Navigation = () => {
                   <span>Call Now</span>
                 </a>
               </Button>
-              <Button variant="hero" size="sm" asChild className="justify-start">
+              <Button variant="minimal" size="sm" asChild className="justify-start">
                 <a href="mailto:david.baum461@gmail.com" className="flex items-center space-x-2">
                   <Mail className="h-4 w-4" />
                   <span>Email Us</span>

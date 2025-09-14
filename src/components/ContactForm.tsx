@@ -88,21 +88,21 @@ const ContactForm = () => {
           animate={{ scale: 1 }}
           transition={{ delay: 0.2, type: "spring" }}
         >
-          <CheckCircle className="h-16 w-16 text-accent-spring mx-auto mb-4" />
+          <CheckCircle className="h-16 w-16 text-primary mx-auto mb-4" />
         </motion.div>
-        <h3 className="text-2xl font-bold mb-2 text-gradient-emerald">
-          Thank you for your inquiry!
-        </h3>
+          <h3 className="text-2xl font-bold mb-2 text-primary">
+            Thank you for your inquiry!
+          </h3>
         <p className="text-muted-foreground mb-6">
           We've received your project details and will respond within 24 hours.
         </p>
         <div className="flex flex-col sm:flex-row gap-3 justify-center">
-          <Button variant="hero" asChild>
-            <a href="tel:+19015176300" className="flex items-center space-x-2">
-              <Phone className="h-4 w-4" />
-              <span>Call us now</span>
-            </a>
-          </Button>
+            <Button variant="minimal" asChild>
+              <a href="tel:+19015176300" className="flex items-center space-x-2">
+                <Phone className="h-4 w-4" />
+                <span>Call us now</span>
+              </a>
+            </Button>
           <Button variant="glass" asChild>
             <a href="mailto:david.baum461@gmail.com" className="flex items-center space-x-2">
               <Mail className="h-4 w-4" />
@@ -123,7 +123,7 @@ const ContactForm = () => {
       className="glass-strong rounded-xl p-8 space-y-6"
     >
       <motion.div variants={itemVariants} className="text-center mb-8">
-        <h3 className="text-2xl font-bold mb-2 text-gradient-primary">
+        <h3 className="text-2xl font-bold mb-2 text-primary">
           Start a Project
         </h3>
         <p className="text-muted-foreground">
@@ -233,7 +233,7 @@ const ContactForm = () => {
       <motion.div variants={itemVariants}>
         <Button
           type="submit"
-          variant="gradient-emerald"
+          variant="minimal"
           size="lg"
           className="w-full"
           disabled={isSubmitting}

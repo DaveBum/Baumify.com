@@ -15,7 +15,7 @@ const Contact = () => {
           className="text-center mb-16"
         >
           <h1 className="text-4xl md:text-5xl font-bold mb-6">
-            Let's build something <span className="text-gradient-primary">extraordinary</span>
+            Let's build something <span className="text-primary">extraordinary</span>
           </h1>
           <p className="text-xl text-secondary max-w-2xl mx-auto">
             Ready to ship elite software? Call, email, or submit your project details below.
@@ -32,11 +32,11 @@ const Contact = () => {
           >
             {/* Direct Contact CTAs */}
             <div className="glass-strong rounded-xl p-8">
-              <h2 className="text-2xl font-bold mb-6 text-gradient-emerald">
-                Get in touch immediately
-              </h2>
+          <h2 className="text-2xl font-bold mb-6">
+            Get in touch immediately
+          </h2>
               <div className="space-y-4">
-                <Button variant="hero" size="lg" asChild className="w-full justify-start">
+                <Button variant="minimal" size="lg" asChild className="w-full justify-start">
                   <a href="tel:+19015176300" className="flex items-center space-x-3">
                     <Phone className="h-5 w-5" />
                     <div className="text-left">
@@ -61,13 +61,13 @@ const Contact = () => {
             {/* Response Times */}
             <div className="glass-strong rounded-xl p-6">
               <h3 className="font-semibold mb-4 flex items-center space-x-2">
-                <div className="w-2 h-2 rounded-full bg-accent-spring animate-pulse" />
+                <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
                 <span>Response Times</span>
               </h3>
               <div className="space-y-3 text-sm">
                 <div className="flex justify-between">
                   <span className="text-muted-foreground">Phone calls</span>
-                  <span className="text-accent-spring">Immediate</span>
+                  <span className="text-primary">Immediate</span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-muted-foreground">Emails</span>

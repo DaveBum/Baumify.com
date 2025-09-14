@@ -36,8 +36,8 @@ const TechMarquee = () => {
             className="flex items-center space-x-2 whitespace-nowrap group cursor-pointer"
             whileHover={{ scale: 1.05 }}
           >
-            <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-            <span className="text-sm font-mono text-muted-foreground group-hover:text-primary transition-colors duration-300">
+            <div className="w-2 h-2 rounded-full bg-secondary animate-pulse" />
+            <span className="text-sm font-mono text-muted-foreground group-hover:text-foreground transition-colors duration-300">
               {tech}
             </span>
           </motion.div>

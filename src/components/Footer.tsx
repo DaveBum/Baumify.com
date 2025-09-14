@@ -11,9 +11,9 @@ const Footer = () => {
           {/* Brand & Description */}
           <div className="md:col-span-2">
             <div className="flex items-center space-x-3 mb-4">
-              <img src={logo} alt="The Byte Effect" className="h-8 w-auto filter invert" />
-              <span className="text-xl font-semibold text-gradient-primary">
-                The Byte Effect
+              <img src={logo} alt="Baumify" className="h-8 w-auto filter invert" />
+              <span className="text-xl font-semibold">
+                Baumify
               </span>
             </div>
             <p className="text-muted-foreground leading-relaxed mb-6 max-w-md">
@@ -22,7 +22,7 @@ const Footer = () => {
             </p>
             {/* Always-visible CTAs */}
             <div className="flex flex-col sm:flex-row gap-3">
-              <Button variant="hero" asChild>
+              <Button variant="minimal" asChild>
                 <a href="tel:+19015176300" className="flex items-center space-x-2">
                   <Phone className="h-4 w-4" />
                   <span>Call Now</span>
@@ -34,7 +34,7 @@ const Footer = () => {
                   <span>Email Us</span>
                 </a>
               </Button>
-              <Button variant="gradient-emerald" asChild>
+              <Button variant="minimal" asChild>
                 <a href="/contact" className="flex items-center space-x-2">
                   <ArrowRight className="h-4 w-4" />
                   <span>Start Project</span>
@@ -87,9 +87,9 @@ const Footer = () => {
 
         {/* Bottom Bar */}
         <div className="pt-8 border-t border-border/20 flex flex-col md:flex-row justify-between items-center gap-4">
-          <div className="text-sm text-muted-foreground">
-            © 2024 The Byte Effect. All rights reserved.
-          </div>
+        <div className="text-sm text-muted-foreground">
+          © 2024 Baumify. All rights reserved.
+        </div>
           <div className="flex items-center space-x-6 text-sm">
             <a href="/privacy" className="text-muted-foreground hover:text-primary transition-colors">
               Privacy Policy
