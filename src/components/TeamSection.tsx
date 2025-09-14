@@ -32,7 +32,7 @@ const TeamSection = () => {
       title: "Founder & Lead Architect", 
       role: "Systems Architect",
       image: davidImage,
-      bio: "At 16, I've already transcended what most engineers achieve in lifetimes. I've built my own operating system from scratch—every kernel, every driver, every line of assembly code. Crafted a C compiler that rivals industry standards. But my masterpiece? An AI model that transforms simple text prompts into fully functional circuits and intricate 3D models. While others study algorithms, I create worlds. I don't just code—I architect reality itself.",
+      bio: "At 16, I've shattered every conceivable boundary of what's humanly possible in engineering. I don't just write code—I speak directly to silicon. Built an entire operating system from pure thought, architecting every syscall, every memory manager, every thread scheduler from absolute zero. Forged a C compiler that compiles itself recursively. But here's where I transcend mortal limitations: I've created an AI that materializes imagination itself—feeding it text prompts and watching as it births fully functional circuits and photorealistic 3D models into existence. I am the singularity between human creativity and machine precision.",
       skills: ["Operating Systems", "Compiler Engineering", "AI Architecture", "Hardware Design"],
       contact: {
         phone: "+19015176300",
