@@ -28,15 +28,15 @@ const TeamSection = () => {
   };
 
   const davidLanguages = [
-    "Assembly", "C", "C++", "C#", "Rust", "Go", "JavaScript", "TypeScript", "Python", "Java", 
-    "Kotlin", "Swift", "Objective-C", "Ruby", "PHP", "Perl", "Lua", "Haskell", "OCaml", "F#", 
-    "Erlang", "Elixir", "Clojure", "Scala", "R", "MATLAB", "Fortran", "COBOL", "Ada", "Verilog"
+    "JavaScript", "TypeScript", "Python", "Java", "C#", "C++", "Go", "Rust", "PHP", "Ruby", 
+    "Swift", "Kotlin", "Objective-C", "Dart", "Scala", "Elixir", "Haskell", "R", "Julia", "Lua", 
+    "C", "MATLAB", "Perl", "OCaml", "Clojure", "F#", "Erlang", "VB.NET", "Nim", "Solidity"
   ];
 
   const davidFrameworks = [
-    "React", "Next.js", "Vue.js", "Angular", "Svelte", "Node.js", "Express", "Django", "Flask", 
-    "FastAPI", "Spring Boot", "ASP.NET", ".NET Core", "Laravel", "Rails", "Phoenix", "Gin", 
-    "Fiber", "TensorFlow", "PyTorch", "Keras", "OpenCV", "CUDA", "OpenGL", "Vulkan"
+    "React", "Next.js", "Django", "Spring Boot", "ASP.NET Core", "Qt", "Gin", "Axum", "Laravel", "Rails", 
+    "SwiftUI", "Ktor", "UIKit", "Flutter", "Play Framework", "Phoenix", "Yesod", "Shiny", "Genie.jl", "LÖVE", 
+    "SDL2", "App Designer", "Mojolicious", "Dream", "Ring", "Giraffe", "Cowboy", "WPF", "Jester", "Hardhat"
   ];
 
   const toggleDropdown = (type: string) => {
