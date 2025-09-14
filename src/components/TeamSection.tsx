@@ -49,7 +49,7 @@ const TeamSection = () => {
       title: "Founder & Lead Architect", 
       role: "Systems Architect",
       image: davidImage,
-      bio: "At 16, I've shattered every conceivable boundary of what's humanly possible in engineering. I don't just write code—I speak directly to silicon. Built an entire operating system from pure thought, architecting every syscall, every memory manager, every thread scheduler from absolute zero. Forged a C compiler that compiles itself recursively. But here's where I transcend mortal limitations: I've created an AI that materializes imagination itself—feeding it text prompts and watching as it births fully functional circuits and photorealistic 3D models into existence. I am the singularity between human creativity and machine precision.",
+      bio: "I'm 16, and I've been building projects that push me to learn things most people don't touch until college or beyond. I've written my own operating system completely from scratch—designing the syscalls, memory manager, and thread scheduler myself. I even built a self-compiling C compiler, just to see if I could. Beyond that, I've worked on AI systems that generate real results from simple prompts, like creating circuits, 3D models, and even full software layouts. I've built everything from rocket-landing simulators to experimental brain-computer interface projects, always chasing the next challenge.",
       skills: ["Operating Systems", "Compiler Engineering", "AI Architecture", "Hardware Design"],
       contact: {
         phone: "+19015176300",
@@ -57,7 +57,7 @@ const TeamSection = () => {
       },
       stats: [
         { label: "Languages", value: "30+", type: "languages" },
-        { label: "Frameworks", value: "25+", type: "frameworks" },
+        { label: "Frameworks", value: "30+", type: "frameworks" },
         { label: "Systems Built", value: "∞" }
       ],
       accent: "text-blue-400",
