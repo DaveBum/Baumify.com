@@ -58,7 +58,7 @@ const TeamSection = () => {
       stats: [
         { label: "Languages", value: "30+", type: "languages" },
         { label: "Frameworks", value: "30+", type: "frameworks" },
-        { label: "Systems Built", value: "∞" }
+        { label: "Systems I can build", value: "∞" }
       ],
       accent: "text-blue-400",
       gradientFrom: "from-blue-500/20",
