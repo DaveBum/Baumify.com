@@ -153,220 +153,176 @@ const TeamSection = () => {
         </ScrollReveal>
 
         {/* Team Cards */}
-        <div className="grid lg:grid-cols-2 gap-12 max-w-7xl mx-auto">
+        <div className="max-w-4xl mx-auto space-y-16">
           {teamMembers.map((member, index) => (
             <motion.div
               key={member.name}
               className="group relative"
-              initial={{ opacity: 0, y: 50 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.3, duration: 0.8 }}
+              transition={{ delay: index * 0.2, duration: 0.6 }}
               viewport={{ once: true }}
             >
-              {/* Main Card */}
-              <motion.div
-                className="relative bg-gradient-to-br from-black/40 to-black/60 backdrop-blur-xl border border-white/10 rounded-2xl overflow-hidden hover:border-white/20 transition-all duration-500"
-                style={{ 
-                  rotateX: index === 0 ? rotateX : rotateY,
-                  rotateY: index === 0 ? rotateY : rotateX,
-                  transformStyle: "preserve-3d" 
-                }}
-                whileHover={{ 
-                  scale: 1.02, 
-                  y: -8,
-                  boxShadow: "0 25px 50px rgba(0,0,0,0.3)"
-                }}
-                onMouseMove={handleMouseMove}
-                onMouseLeave={() => {
-                  mouseX.set(0);
-                  mouseY.set(0);
-                }}
-              >
-                {/* Background Gradient */}
+              {/* Team Member Row */}
+              <div className={`flex items-start gap-8 ${index % 2 === 1 ? 'flex-row-reverse' : ''}`}>
+                {/* Profile Image */}
                 <motion.div 
-                  className={`absolute inset-0 bg-gradient-to-br ${member.gradientFrom} ${member.gradientTo} opacity-0 group-hover:opacity-100 transition-opacity duration-500`}
-                />
-                
-                {/* Status Badge */}
-                <motion.div
-                  className="absolute top-6 right-6 z-20"
-                  animate={{ 
-                    y: [0, -3, 0],
-                    rotate: [0, 2, 0] 
-                  }}
-                  transition={{ 
-                    duration: 4, 
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                    delay: index * 0.5
-                  }}
+                  className="flex-shrink-0"
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ duration: 0.3 }}
                 >
-                  <div className="glass px-4 py-2 rounded-full flex items-center space-x-2">
+                  <div className="relative">
+                    <motion.img 
+                      src={member.image}
+                      alt={`${member.name} - ${member.title}`}
+                      className="w-24 h-24 md:w-32 md:h-32 rounded-full object-cover object-center grayscale hover:grayscale-0 border-2 border-white/20 hover:border-white/40 transition-all duration-500"
+                    />
+                    
+                    {/* Status Indicator */}
                     <motion.div 
-                      className="w-2 h-2 rounded-full bg-green-400"
+                      className="absolute -bottom-1 -right-1 w-6 h-6 bg-green-500 rounded-full border-2 border-background flex items-center justify-center"
                       animate={{ 
-                        scale: [1, 1.3, 1],
-                        opacity: [0.7, 1, 0.7] 
+                        scale: [1, 1.1, 1],
+                        boxShadow: [
+                          "0 0 0 0 rgba(34, 197, 94, 0.4)",
+                          "0 0 0 8px rgba(34, 197, 94, 0)",
+                          "0 0 0 0 rgba(34, 197, 94, 0)"
+                        ]
                       }}
                       transition={{ 
                         duration: 2, 
-                        repeat: Infinity,
-                        delay: index * 0.3
+                        repeat: Infinity 
                       }}
-                    />
-                    <span className="text-xs font-mono text-green-400">Available</span>
+                    >
+                      <div className="w-2 h-2 bg-white rounded-full" />
+                    </motion.div>
                   </div>
                 </motion.div>
 
-                {/* Hero Image Section */}
-                <div className="relative h-80 overflow-hidden">
-                  <motion.img 
-                    src={member.image} 
-                    alt={`${member.name} - ${member.title}`}
-                    className="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-700"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-                  
-                  {/* Floating Role Badge */}
+                {/* Content */}
+                <div className="flex-1 min-w-0">
                   <motion.div 
-                    className="absolute bottom-6 left-6"
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.8 + index * 0.2 }}
-                    viewport={{ once: true }}
+                    className="glass-strong rounded-xl p-6 md:p-8 hover:bg-white/5 transition-all duration-300 border border-white/10 hover:border-white/20"
+                    whileHover={{ y: -2 }}
                   >
-                    <div className="glass-strong px-4 py-2 rounded-xl">
-                      <div className={`text-sm font-semibold ${member.accent}`}>{member.role}</div>
-                    </div>
-                  </motion.div>
-                </div>
-                
-                {/* Content Section */}
-                <div className="p-8 relative" style={{ transform: "translateZ(20px)" }}>
-                  {/* Name & Title */}
-                  <div className="mb-6">
-                    <motion.h3 
-                      className="text-2xl md:text-3xl font-bold mb-2 group-hover:text-white transition-colors"
-                      whileHover={{ scale: 1.02 }}
-                    >
-                      {member.name}
-                    </motion.h3>
-                    <motion.div 
-                      className={`text-lg font-medium ${member.accent} mb-1`}
-                    >
-                      {member.title}
-                    </motion.div>
-                  </div>
-
-                  {/* Bio */}
-                  <motion.p 
-                    className="text-muted-foreground mb-6 leading-relaxed text-sm md:text-base"
-                  >
-                    {member.bio}
-                  </motion.p>
-
-                  {/* Stats Row */}
-                  <div className="grid grid-cols-3 gap-4 mb-6">
-                    {member.stats.map((stat, statIndex) => (
-                      <motion.div 
-                        key={stat.label}
-                        className="text-center"
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 1 + statIndex * 0.1 + index * 0.3 }}
-                        viewport={{ once: true }}
-                      >
+                    {/* Header */}
+                    <div className="mb-6">
+                      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-4">
+                        <div>
+                          <motion.h3 
+                            className="text-xl md:text-2xl font-bold text-white mb-1"
+                            whileHover={{ scale: 1.02 }}
+                          >
+                            {member.name}
+                          </motion.h3>
+                          <div className="text-sm text-white/60 font-medium">
+                            {member.title}
+                          </div>
+                        </div>
+                        
                         <motion.div 
-                          className={`text-lg md:text-xl font-bold ${member.accent} mb-1`}
-                          animate={{ 
-                            textShadow: [
-                              "0 0 0px rgba(255,255,255,0)", 
-                              "0 0 8px rgba(255,255,255,0.3)", 
-                              "0 0 0px rgba(255,255,255,0)"
-                            ] 
-                          }}
-                          transition={{ duration: 5, repeat: Infinity, delay: statIndex * 0.7 }}
+                          className="inline-flex items-center px-3 py-1 bg-white/10 rounded-full"
+                          whileHover={{ scale: 1.05 }}
                         >
-                          {stat.value}
+                          <span className="text-xs font-mono text-white/80">{member.role}</span>
                         </motion.div>
-                        <div className="text-xs text-muted-foreground font-medium">{stat.label}</div>
-                      </motion.div>
-                    ))}
-                  </div>
-                  
-                  {/* Skills */}
-                  <div className="mb-8">
-                    <div className={`text-sm font-semibold ${member.accent} mb-3`}>Core Expertise</div>
-                    <div className="flex flex-wrap gap-2">
-                      {member.skills.map((skill, skillIndex) => (
-                        <motion.span 
-                          key={skill} 
-                          className="px-3 py-1.5 bg-white/5 border border-white/10 text-white text-xs rounded-full hover:bg-white/10 hover:border-white/20 transition-all cursor-default"
-                          whileHover={{ scale: 1.05, y: -2 }}
-                          initial={{ opacity: 0, scale: 0.8 }}
-                          whileInView={{ opacity: 1, scale: 1 }}
-                          transition={{ delay: 1.2 + skillIndex * 0.1 + index * 0.3 }}
+                      </div>
+                    </div>
+
+                    {/* Bio */}
+                    <motion.p 
+                      className="text-white/70 mb-6 leading-relaxed"
+                      initial={{ opacity: 0.7 }}
+                      whileInView={{ opacity: 1 }}
+                      transition={{ duration: 0.5 }}
+                    >
+                      {member.bio}
+                    </motion.p>
+
+                    {/* Stats */}
+                    <div className="grid grid-cols-3 gap-4 mb-6 py-4 border-y border-white/10">
+                      {member.stats.map((stat, statIndex) => (
+                        <motion.div 
+                          key={stat.label}
+                          className="text-center"
+                          initial={{ opacity: 0, y: 10 }}
+                          whileInView={{ opacity: 1, y: 0 }}
+                          transition={{ delay: statIndex * 0.1 }}
                           viewport={{ once: true }}
                         >
-                          {skill}
-                        </motion.span>
+                          <div className="text-lg md:text-xl font-bold text-white mb-1">
+                            {stat.value}
+                          </div>
+                          <div className="text-xs text-white/60 font-medium">
+                            {stat.label}
+                          </div>
+                        </motion.div>
                       ))}
                     </div>
-                  </div>
+                    
+                    {/* Skills */}
+                    <div className="mb-6">
+                      <div className="text-sm font-semibold text-white/80 mb-3">Expertise</div>
+                      <div className="flex flex-wrap gap-2">
+                        {member.skills.map((skill, skillIndex) => (
+                          <motion.span 
+                            key={skill} 
+                            className="px-3 py-1 bg-white/10 text-white/90 text-xs rounded-full border border-white/20 hover:bg-white/20 hover:border-white/30 transition-all cursor-default"
+                            whileHover={{ scale: 1.05, y: -1 }}
+                            initial={{ opacity: 0, scale: 0.9 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
+                            transition={{ delay: 0.5 + skillIndex * 0.1 }}
+                            viewport={{ once: true }}
+                          >
+                            {skill}
+                          </motion.span>
+                        ))}
+                      </div>
+                    </div>
 
-                  {/* Contact Actions */}
-                  <div className="flex flex-col sm:flex-row gap-3">
-                    {member.contact.phone && (
+                    {/* Contact Actions */}
+                    <div className="flex flex-col sm:flex-row gap-3">
+                      {member.contact.phone && (
+                        <motion.div 
+                          whileHover={{ scale: 1.02, y: -1 }} 
+                          whileTap={{ scale: 0.98 }}
+                          className="flex-1"
+                        >
+                          <Button 
+                            size="sm" 
+                            variant="minimal" 
+                            asChild 
+                            className="w-full bg-white/10 border-white/20 hover:bg-white/20 hover:border-white/30 text-white"
+                          >
+                            <a href={`tel:${member.contact.phone}`} className="flex items-center justify-center space-x-2">
+                              <Phone className="h-4 w-4" />
+                              <span>Call {member.name.split(' ')[0]}</span>
+                            </a>
+                          </Button>
+                        </motion.div>
+                      )}
+                      
                       <motion.div 
-                        whileHover={{ scale: 1.02, y: -2 }} 
+                        whileHover={{ scale: 1.02, y: -1 }} 
                         whileTap={{ scale: 0.98 }}
                         className="flex-1"
                       >
                         <Button 
-                          size="default" 
-                          variant="minimal" 
+                          size="sm" 
+                          variant="glass" 
                           asChild 
-                          className={`w-full bg-white/5 border-white/20 hover:bg-white/10 hover:border-white/30 ${member.accent}`}
+                          className="w-full bg-white/5 border-white/10 hover:bg-white/10 text-white"
                         >
-                          <a href={`tel:${member.contact.phone}`} className="flex items-center justify-center space-x-2">
-                            <motion.div
-                              animate={{ rotate: [0, 5, -5, 0] }}
-                              transition={{ duration: 3, repeat: Infinity }}
-                            >
-                              <Phone className="h-4 w-4" />
-                            </motion.div>
-                            <span>Call {member.name.split(' ')[0]}</span>
+                          <a href={`mailto:${member.contact.email}`} className="flex items-center justify-center space-x-2">
+                            <Mail className="h-4 w-4" />
+                            <span>Email {member.name.split(' ')[0]}</span>
                           </a>
                         </Button>
                       </motion.div>
-                    )}
-                    
-                    <motion.div 
-                      whileHover={{ scale: 1.02, y: -2 }} 
-                      whileTap={{ scale: 0.98 }}
-                      className="flex-1"
-                    >
-                      <Button 
-                        size="default" 
-                        variant="glass" 
-                        asChild 
-                        className="w-full bg-white/5 border-white/10 hover:bg-white/10 text-white"
-                      >
-                        <a href={`mailto:${member.contact.email}`} className="flex items-center justify-center space-x-2">
-                          <Mail className="h-4 w-4" />
-                          <span>Email {member.name.split(' ')[0]}</span>
-                        </a>
-                      </Button>
-                    </motion.div>
-                  </div>
+                    </div>
+                  </motion.div>
                 </div>
-
-                {/* Shimmer Effect */}
-                <motion.div
-                  className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"
-                  style={{ transform: "skewX(-25deg)" }}
-                />
-              </motion.div>
+              </div>
             </motion.div>
           ))}
         </div>
