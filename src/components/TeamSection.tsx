@@ -28,14 +28,14 @@ const TeamSection = () => {
   };
 
   const davidLanguages = [
-    "JavaScript", "TypeScript", "Python", "Java", "C#", "C++", "Go", "Rust", "PHP", "Ruby", 
-    "Swift", "Kotlin", "Objective-C", "Dart", "Scala", "Elixir", "Haskell", "R", "Julia", "Lua", 
+    "JavaScript", "TypeScript", "Python", "C#", "C++", "Go", "Rust", "PHP", "Ruby", 
+    "Swift", "Objective-C", "Dart", "Scala", "Elixir", "Haskell", "R", "Julia", "Lua", 
     "C", "MATLAB", "Perl", "OCaml", "Clojure", "F#", "Erlang", "VB.NET", "Nim", "Solidity"
   ];
 
   const davidFrameworks = [
-    "React", "Next.js", "Django", "Spring Boot", "ASP.NET Core", "Qt", "Gin", "Axum", "Laravel", "Rails", 
-    "SwiftUI", "Ktor", "UIKit", "Flutter", "Play Framework", "Phoenix", "Yesod", "Shiny", "Genie.jl", "LÖVE", 
+    "React", "Next.js", "Django", "ASP.NET Core", "Qt", "Gin", "Axum", "Laravel", "Rails", 
+    "SwiftUI", "UIKit", "Flutter", "Play Framework", "Phoenix", "Yesod", "Shiny", "Genie.jl", "LÖVE", 
     "SDL2", "App Designer", "Mojolicious", "Dream", "Ring", "Giraffe", "Cowboy", "WPF", "Jester", "Hardhat"
   ];
 
@@ -56,8 +56,8 @@ const TeamSection = () => {
         email: "david.baum461@gmail.com"
       },
       stats: [
-        { label: "Languages", value: "30+", type: "languages" },
-        { label: "Frameworks", value: "30+", type: "frameworks" },
+        { label: "Languages", value: "28+", type: "languages" },
+        { label: "Frameworks", value: "28+", type: "frameworks" },
         { label: "Systems I can build", value: "∞" }
       ],
       accent: "text-blue-400",
@@ -69,7 +69,7 @@ const TeamSection = () => {
       title: "Junior Developer & Co-Founder",
       role: "Implementation Specialist",
       image: omerImage,
-      bio: "Speed with precision. I turn specs into ship-ready features, keep pipelines green, and sweat the edge cases. Pixel-perfect implementation with a CI/CD obsession.",
+      bio: "idk good at kotlin and java",
       skills: ["Quality Assurance"],
       contact: {
         email: "omer@baumify.com"
