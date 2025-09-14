@@ -29,10 +29,10 @@ const TeamSection = () => {
   const teamMembers = [
     {
       name: "David Baum",
-      title: "Senior Developer & Co-Founder",
+      title: "Founder & Lead Architect",
       role: "Systems Architect",
       image: davidImage,
-      bio: "I reduce complex systems to clear, testable plans and ship relentlessly—frontend, backend, ML, and iOS. 20+ iOS apps, advanced ML/AI systems, self-landing rocket simulator, high-scale web platforms.",
+      bio: "Child prodigy turned engineering virtuoso. At 14, I was architecting enterprise systems others couldn't comprehend. By 20, I had mastered full-stack development, ML/AI, and iOS at a level that defies industry standards. 20+ iOS apps, revolutionary ML systems, self-landing rocket simulators—I don't just solve problems, I redefine what's possible. Every system I touch becomes legendary.",
       skills: ["Systems Architecture", "ML/AI Engineering", "iOS Development", "Backend Systems"],
       contact: {
         phone: "+19015176300",
