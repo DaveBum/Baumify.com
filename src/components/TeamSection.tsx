@@ -70,7 +70,7 @@ const TeamSection = () => {
       role: "Implementation Specialist",
       image: omerImage,
       bio: "Speed with precision. I turn specs into ship-ready features, keep pipelines green, and sweat the edge cases. Pixel-perfect implementation with a CI/CD obsession.",
-      skills: ["Frontend Engineering", "CI/CD Pipelines", "Quality Assurance", "API Integration"],
+      skills: ["Quality Assurance"],
       contact: {
         email: "omer@baumify.com"
       },
