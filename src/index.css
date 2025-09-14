@@ -2,41 +2,71 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* THE BYTE EFFECT DARK DESIGN SYSTEM */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Dark Foundation Colors */
+    --background: 228 15% 4%;          /* #0A0B0F - Ink black */
+    --foreground: 223 22% 93%;         /* #E6EAF2 - Primary text */
+    
+    --card: 228 16% 7%;                /* #0E1117 - Card backgrounds */
+    --card-foreground: 223 22% 93%;   /* #E6EAF2 */
+    
+    --panel: 228 18% 6%;               /* #0C0F14 - Panel backgrounds */
+    
+    --popover: 228 16% 7%;
+    --popover-foreground: 223 22% 93%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    /* Accent Colors - Electric palette */
+    --primary: 206 100% 67%;           /* #5AB0FF - Electric blue */
+    --primary-foreground: 228 15% 4%;
+    --primary-glow: 206 100% 80%;     /* Lighter blue for glows */
+    
+    --secondary: 223 15% 70%;          /* #A9B2C7 - Secondary text */
+    --secondary-foreground: 228 15% 4%;
+    
+    --accent-emerald: 172 100% 41%;    /* #00D1A0 - Emerald */
+    --accent-violet: 260 58% 74%;     /* #9A7BFF - Neon violet */
+    --accent-coral: 0 79% 70%;        /* #FF6B6B - Coral */
+    --accent-spring: 162 100% 44%;    /* #00E09E - Spring */
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --muted: 224 12% 42%;              /* #6D7690 - Muted text */
+    --muted-foreground: 223 15% 70%;  /* #A9B2C7 */
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --destructive: 0 79% 70%;          /* #FF6B6B - Coral */
+    --destructive-foreground: 223 22% 93%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Borders & Inputs */
+    --border: 224 8% 15%;              /* Subtle border */
+    --input: 228 16% 7%;               /* Input backgrounds */
+    --ring: 206 100% 67%;              /* Focus ring - electric blue */
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Glass & Effects */
+    --glass-bg: 228 16% 7%;            /* Base for glassmorphism */
+    --glass-border: 0 0% 100%;         /* White for glass borders */
+    --glow-primary: 206 100% 67%;      /* Primary glow */
+    --glow-emerald: 172 100% 41%;      /* Emerald glow */
+    --glow-violet: 260 58% 74%;       /* Violet glow */
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(206 100% 67%) 0%, hsl(260 58% 74%) 100%);
+    --gradient-emerald: linear-gradient(135deg, hsl(172 100% 41%) 0%, hsl(206 100% 67%) 100%);
+    --gradient-dark: linear-gradient(135deg, hsl(228 15% 4%) 0%, hsl(228 16% 7%) 100%);
+    --gradient-card: linear-gradient(135deg, hsl(228 16% 7%) 0%, hsl(228 18% 6%) 100%);
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    /* Shadows & Effects */
+    --shadow-glow: 0 0 40px hsl(206 100% 67% / 0.3);
+    --shadow-emerald: 0 0 30px hsl(172 100% 41% / 0.25);
+    --shadow-violet: 0 0 30px hsl(260 58% 74% / 0.25);
+    --shadow-elegant: 0 10px 30px -10px hsl(228 15% 4% / 0.8);
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    /* Animation */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-spring: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
 
     --sidebar-background: 0 0% 98%;
 
@@ -100,6 +130,76 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-inter antialiased;
+    font-feature-settings: 'rlig' 1, 'calt' 1;
+  }
+}
+
+@layer components {
+  /* Glassmorphism utilities */
+  .glass {
+    background: hsl(var(--glass-bg) / 0.08);
+    backdrop-filter: blur(12px);
+    border: 1px solid hsl(var(--glass-border) / 0.1);
+  }
+  
+  .glass-strong {
+    background: hsl(var(--glass-bg) / 0.12);
+    backdrop-filter: blur(16px);
+    border: 1px solid hsl(var(--glass-border) / 0.12);
+  }
+
+  /* Glow effects */
+  .glow-primary {
+    box-shadow: var(--shadow-glow);
+  }
+  
+  .glow-emerald {
+    box-shadow: var(--shadow-emerald);
+  }
+  
+  .glow-violet {
+    box-shadow: var(--shadow-violet);
+  }
+
+  /* Gradient backgrounds */
+  .bg-gradient-primary {
+    background: var(--gradient-primary);
+  }
+  
+  .bg-gradient-emerald {
+    background: var(--gradient-emerald);
+  }
+  
+  .bg-gradient-dark {
+    background: var(--gradient-dark);
+  }
+  
+  .bg-gradient-card {
+    background: var(--gradient-card);
+  }
+
+  /* Motion utilities */
+  .transition-smooth {
+    transition: var(--transition-smooth);
+  }
+  
+  .transition-spring {
+    transition: var(--transition-spring);
+  }
+
+  /* Text gradients */
+  .text-gradient-primary {
+    background: var(--gradient-primary);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  .text-gradient-emerald {
+    background: var(--gradient-emerald);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
 }

@@ -1,0 +1,110 @@
+import { Button } from "@/components/ui/button";
+import { Phone, Mail, ArrowRight } from "lucide-react";
+import logo from "@/assets/logo.png";
+
+const Footer = () => {
+  return (
+    <footer className="bg-card/50 border-t border-border/20">
+      <div className="container mx-auto px-6 py-12">
+        {/* Main Footer Content */}
+        <div className="grid md:grid-cols-4 gap-8 mb-8">
+          {/* Brand & Description */}
+          <div className="md:col-span-2">
+            <div className="flex items-center space-x-3 mb-4">
+              <img src={logo} alt="The Byte Effect" className="h-8 w-auto filter invert" />
+              <span className="text-xl font-semibold text-gradient-primary">
+                The Byte Effect
+              </span>
+            </div>
+            <p className="text-muted-foreground leading-relaxed mb-6 max-w-md">
+              We architect, design, and ship elite software—fast. Surgical precision. 
+              Systems thinking. Relentless shipping.
+            </p>
+            {/* Always-visible CTAs */}
+            <div className="flex flex-col sm:flex-row gap-3">
+              <Button variant="hero" asChild>
+                <a href="tel:+19015176300" className="flex items-center space-x-2">
+                  <Phone className="h-4 w-4" />
+                  <span>Call Now</span>
+                </a>
+              </Button>
+              <Button variant="glass" asChild>
+                <a href="mailto:david.baum461@gmail.com" className="flex items-center space-x-2">
+                  <Mail className="h-4 w-4" />
+                  <span>Email Us</span>
+                </a>
+              </Button>
+              <Button variant="gradient-emerald" asChild>
+                <a href="/contact" className="flex items-center space-x-2">
+                  <ArrowRight className="h-4 w-4" />
+                  <span>Start Project</span>
+                </a>
+              </Button>
+            </div>
+          </div>
+
+          {/* Services */}
+          <div>
+            <h3 className="font-semibold text-foreground mb-4">Services</h3>
+            <ul className="space-y-2 text-sm">
+              <li><a href="/services" className="text-muted-foreground hover:text-primary transition-colors">Full-stack Development</a></li>
+              <li><a href="/services" className="text-muted-foreground hover:text-primary transition-colors">Mobile Apps (iOS)</a></li>
+              <li><a href="/services" className="text-muted-foreground hover:text-primary transition-colors">Cloud & DevOps</a></li>
+              <li><a href="/services" className="text-muted-foreground hover:text-primary transition-colors">Data & ML</a></li>
+              <li><a href="/services" className="text-muted-foreground hover:text-primary transition-colors">Product Strategy</a></li>
+            </ul>
+          </div>
+
+          {/* Company */}
+          <div>
+            <h3 className="font-semibold text-foreground mb-4">Company</h3>
+            <ul className="space-y-2 text-sm">
+              <li><a href="/about" className="text-muted-foreground hover:text-primary transition-colors">About</a></li>
+              <li><a href="/work" className="text-muted-foreground hover:text-primary transition-colors">Case Studies</a></li>
+              <li><a href="/blog" className="text-muted-foreground hover:text-primary transition-colors">Blog</a></li>
+              <li><a href="/contact" className="text-muted-foreground hover:text-primary transition-colors">Contact</a></li>
+            </ul>
+          </div>
+        </div>
+
+        {/* Tech Stack */}
+        <div className="mb-8">
+          <h4 className="font-semibold text-foreground mb-3 text-sm uppercase tracking-wide">Our Stack</h4>
+          <div className="flex flex-wrap gap-2">
+            {[
+              "React/Next.js", "TypeScript", "Node/Nest", "Postgres/Prisma", 
+              "Redis", "WebSockets", "Stripe", "AWS", "Docker/K8s", "Swift/iOS"
+            ].map((tech) => (
+              <span 
+                key={tech}
+                className="px-3 py-1 bg-primary/10 text-primary text-xs rounded-full font-mono"
+              >
+                {tech}
+              </span>
+            ))}
+          </div>
+        </div>
+
+        {/* Bottom Bar */}
+        <div className="pt-8 border-t border-border/20 flex flex-col md:flex-row justify-between items-center gap-4">
+          <div className="text-sm text-muted-foreground">
+            © 2024 The Byte Effect. All rights reserved.
+          </div>
+          <div className="flex items-center space-x-6 text-sm">
+            <a href="/privacy" className="text-muted-foreground hover:text-primary transition-colors">
+              Privacy Policy
+            </a>
+            <a href="/terms" className="text-muted-foreground hover:text-primary transition-colors">
+              Terms of Service
+            </a>
+            <a href="tel:+19015176300" className="text-primary hover:text-primary-glow transition-colors font-mono">
+              +1 (901) 517-6300
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+};
+
+export default Footer;
