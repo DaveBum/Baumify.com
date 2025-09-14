@@ -175,7 +175,9 @@ const TeamSection = () => {
                     <motion.img 
                       src={member.image}
                       alt={`${member.name} - ${member.title}`}
-                      className="w-24 h-24 md:w-32 md:h-32 rounded-full object-cover object-center grayscale hover:grayscale-0 border-2 border-white/20 hover:border-white/40 transition-all duration-500"
+                      className={`w-24 h-24 md:w-32 md:h-32 rounded-full object-cover grayscale hover:grayscale-0 border-2 border-white/20 hover:border-white/40 transition-all duration-500 ${
+                        member.name === "David Baum" ? "object-top" : "object-[center_20%]"
+                      }`}
                     />
                     
                     {/* Status Indicator */}
