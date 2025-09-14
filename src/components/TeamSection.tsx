@@ -47,7 +47,7 @@ const TeamSection = () => {
     {
       name: "David Baum",
       title: "Founder & Lead Architect", 
-      role: "Systems Architect",
+      role: "System architect and frontend engineer",
       image: davidImage,
       bio: "I'm 16, and I've been building projects that push me to learn things most people don't touch until college or beyond. I've written my own operating system completely from scratch—designing the syscalls, memory manager, and thread scheduler myself. I even built a self-compiling C compiler, just to see if I could. Beyond that, I've worked on AI systems that generate real results from simple prompts, like creating circuits, 3D models, and even full software layouts. I've built everything from rocket-landing simulators to experimental brain-computer interface projects, always chasing the next challenge.",
       skills: ["There isn't a single thing in tech that I can't master or haven't already mastered"],
@@ -196,25 +196,6 @@ const TeamSection = () => {
                         member.name === "David Baum" ? "object-[center_35%]" : "object-[center_10%]"
                       }`}
                     />
-                    
-                    {/* Status Indicator */}
-                    <motion.div 
-                      className="absolute -bottom-1 -right-1 w-6 h-6 bg-green-500 rounded-full border-2 border-background flex items-center justify-center"
-                      animate={{ 
-                        scale: [1, 1.1, 1],
-                        boxShadow: [
-                          "0 0 0 0 rgba(34, 197, 94, 0.4)",
-                          "0 0 0 8px rgba(34, 197, 94, 0)",
-                          "0 0 0 0 rgba(34, 197, 94, 0)"
-                        ]
-                      }}
-                      transition={{ 
-                        duration: 2, 
-                        repeat: Infinity 
-                      }}
-                    >
-                      <div className="w-2 h-2 bg-white rounded-full" />
-                    </motion.div>
                   </div>
                 </motion.div>
 
