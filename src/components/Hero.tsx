@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Phone, Mail, ArrowRight, Code2, Zap, Target } from "lucide-react";
 import TechMarquee from "./TechMarquee";
 import AnimatedBackground from "./AnimatedBackground";
+import TerminalTypewriter from "./TerminalTypewriter";
 import heroBg from "@/assets/hero-bg.jpg";
 
 const Hero = () => {
@@ -128,37 +129,102 @@ const Hero = () => {
           </div>
         </motion.div>
 
-        {/* Animated Main Headline */}
+        {/* Terminal Welcome Message */}
         <div className="mb-8">
-          <motion.h1 
-            className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight"
-            variants={containerVariants}
+          <motion.div 
+            className="bg-black/90 backdrop-blur-sm border border-white/10 rounded-lg p-6 max-w-4xl mx-auto font-mono text-left shadow-2xl"
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.5, duration: 0.8 }}
           >
-            {title.split(' ').map((word, wordIndex) => (
-              <span key={wordIndex} className="inline-block mr-4">
-                {word.split('').map((char, charIndex) => (
-                  <motion.span
-                    key={`${wordIndex}-${charIndex}`}
-                    className={`inline-block ${
-                      word === 'elite' ? 'text-primary' : ''
-                    }`}
-                    initial={{ opacity: 0, y: 50 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ 
-                      delay: wordIndex * 0.1 + charIndex * 0.05,
-                      duration: 0.5 
-                    }}
-                    whileHover={{ 
-                      scale: 1.2, 
-                      color: "#ffffff",
-                    }}
-                  >
-                    {char}
-                  </motion.span>
-                ))}
-              </span>
-            ))}
-          </motion.h1>
+            {/* Terminal Header */}
+            <div className="flex items-center justify-between mb-4 pb-2 border-b border-white/10">
+              <div className="flex items-center space-x-2">
+                <div className="flex space-x-1">
+                  <div className="w-3 h-3 rounded-full bg-red-500/80"></div>
+                  <div className="w-3 h-3 rounded-full bg-yellow-500/80"></div>
+                  <div className="w-3 h-3 rounded-full bg-green-500/80"></div>
+                </div>
+                <span className="text-white/60 text-sm">terminal</span>
+              </div>
+            </div>
+            
+            {/* Terminal Content */}
+            <div className="space-y-2">
+              <motion.div 
+                className="text-green-400 text-sm"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 1 }}
+              >
+                user@baumify:~$ whoami
+              </motion.div>
+              
+              <motion.div 
+                className="text-white text-sm ml-4"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 1.5 }}
+              >
+                Elite software architects
+              </motion.div>
+              
+              <motion.div 
+                className="text-green-400 text-sm mt-3"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 2 }}
+              >
+                user@baumify:~$ cat mission.txt
+              </motion.div>
+              
+              <motion.div 
+                className="text-white/90 ml-4"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 2.5 }}
+              >
+                <TerminalTypewriter 
+                  text="We architect, design, and ship elite software—fast."
+                  delay={3000}
+                />
+              </motion.div>
+              
+              <motion.div 
+                className="text-green-400 text-sm mt-3"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 6 }}
+              >
+                user@baumify:~$ ls -la services/
+              </motion.div>
+              
+              <motion.div 
+                className="text-white/80 text-sm ml-4 space-y-1"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 6.5 }}
+              >
+                <div>drwxr-xr-x design_that_converts/</div>
+                <div>drwxr-xr-x systems_that_scale/</div>
+                <div>drwxr-xr-x velocity_that_compounds/</div>
+              </motion.div>
+              
+              <motion.div 
+                className="flex items-center text-green-400 text-sm mt-4"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 7.5 }}
+              >
+                <span>user@baumify:~$ </span>
+                <motion.span
+                  className="inline-block w-2 h-4 bg-green-400 ml-1"
+                  animate={{ opacity: [1, 0] }}
+                  transition={{ duration: 0.8, repeat: Infinity }}
+                />
+              </motion.div>
+            </div>
+          </motion.div>
         </div>
 
         {/* CTA Buttons with Animations */}
