@@ -129,96 +129,169 @@ const Hero = () => {
           </div>
         </motion.div>
 
-        {/* Terminal Welcome Message */}
-        <div className="mb-8">
+        {/* Enhanced Terminal Welcome Message */}
+        <div className="mb-12">
           <motion.div 
-            className="bg-black/90 backdrop-blur-sm border border-white/10 rounded-lg p-6 max-w-4xl mx-auto font-mono text-left shadow-2xl"
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.5, duration: 0.8 }}
+            className="relative bg-black/95 backdrop-blur-lg border border-green-500/20 rounded-xl p-8 max-w-5xl mx-auto font-mono text-left shadow-[0_0_50px_rgba(34,197,94,0.15)] overflow-hidden"
+            initial={{ opacity: 0, y: 50, scale: 0.95 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            transition={{ delay: 0.3, duration: 1, ease: "easeOut" }}
+            whileHover={{ 
+              boxShadow: "0 0 80px rgba(34,197,94,0.25)",
+              scale: 1.02,
+              transition: { duration: 0.3 }
+            }}
           >
+            {/* Animated Matrix Background */}
+            <motion.div 
+              className="absolute inset-0 opacity-5"
+              animate={{ 
+                backgroundPosition: ["0% 0%", "100% 100%"],
+              }}
+              transition={{ 
+                duration: 20,
+                repeat: Infinity,
+                ease: "linear"
+              }}
+              style={{
+                backgroundImage: "radial-gradient(2px 2px at 20px 30px, #22c55e, transparent), radial-gradient(2px 2px at 40px 70px, #22c55e, transparent)",
+                backgroundSize: "80px 80px"
+              }}
+            />
+            
             {/* Terminal Header */}
-            <div className="flex items-center justify-between mb-4 pb-2 border-b border-white/10">
-              <div className="flex items-center space-x-2">
-                <div className="flex space-x-1">
-                  <div className="w-3 h-3 rounded-full bg-red-500/80"></div>
-                  <div className="w-3 h-3 rounded-full bg-yellow-500/80"></div>
-                  <div className="w-3 h-3 rounded-full bg-green-500/80"></div>
+            <motion.div 
+              className="flex items-center justify-between mb-6 pb-3 border-b border-green-500/20"
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.6 }}
+            >
+              <div className="flex items-center space-x-3">
+                <div className="flex space-x-1.5">
+                  <motion.div 
+                    className="w-3.5 h-3.5 rounded-full bg-red-500"
+                    whileHover={{ scale: 1.2, boxShadow: "0 0 10px #ef4444" }}
+                  />
+                  <motion.div 
+                    className="w-3.5 h-3.5 rounded-full bg-yellow-500"
+                    whileHover={{ scale: 1.2, boxShadow: "0 0 10px #eab308" }}
+                  />
+                  <motion.div 
+                    className="w-3.5 h-3.5 rounded-full bg-green-500"
+                    whileHover={{ scale: 1.2, boxShadow: "0 0 10px #22c55e" }}
+                  />
                 </div>
-                <span className="text-white/60 text-sm">terminal</span>
+                <span className="text-green-400/80 text-sm font-semibold">baumify-terminal v2.1.0</span>
               </div>
-            </div>
+              <div className="text-green-400/60 text-xs">
+                <motion.span
+                  animate={{ opacity: [0.6, 1, 0.6] }}
+                  transition={{ duration: 2, repeat: Infinity }}
+                >
+                  ● CONNECTED
+                </motion.span>
+              </div>
+            </motion.div>
             
             {/* Terminal Content */}
-            <div className="space-y-2">
+            <div className="space-y-3 text-base">
               <motion.div 
-                className="text-green-400 text-sm"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
+                className="flex items-center text-green-400"
+                initial={{ opacity: 0, x: -10 }}
+                animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 1 }}
               >
-                user@baumify:~$ whoami
+                <span className="text-cyan-400">root@baumify</span>
+                <span className="text-white">:</span>
+                <span className="text-blue-400">~</span>
+                <span className="text-white">$</span>
+                <span className="ml-2">whoami</span>
               </motion.div>
               
               <motion.div 
-                className="text-white text-sm ml-4"
+                className="text-white ml-6 text-lg"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ delay: 1.5 }}
+                transition={{ delay: 1.8 }}
               >
-                Elite software architects
+                <span className="text-green-300">{'>'}</span> Elite Software Architects
               </motion.div>
               
               <motion.div 
-                className="text-green-400 text-sm mt-3"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 2 }}
-              >
-                user@baumify:~$ cat mission.txt
-              </motion.div>
-              
-              <motion.div 
-                className="text-white/90 ml-4"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
+                className="flex items-center text-green-400 mt-6"
+                initial={{ opacity: 0, x: -10 }}
+                animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 2.5 }}
               >
+                <span className="text-cyan-400">root@baumify</span>
+                <span className="text-white">:</span>
+                <span className="text-blue-400">~</span>
+                <span className="text-white">$</span>
+                <span className="ml-2">cat company_mission.txt</span>
+              </motion.div>
+              
+              <motion.div 
+                className="text-white/95 ml-6 text-xl md:text-2xl font-light leading-relaxed"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 3.2 }}
+              >
+                <span className="text-green-300">{'>'}</span>
                 <TerminalTypewriter 
-                  text="We architect, design, and ship elite software—fast."
-                  delay={3000}
+                  text=" We architect, design, and ship elite software—fast."
+                  delay={3800}
+                  speed={80}
                 />
               </motion.div>
               
               <motion.div 
-                className="text-green-400 text-sm mt-3"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 6 }}
-              >
-                user@baumify:~$ ls -la services/
-              </motion.div>
-              
-              <motion.div 
-                className="text-white/80 text-sm ml-4 space-y-1"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
+                className="flex items-center text-green-400 mt-6"
+                initial={{ opacity: 0, x: -10 }}
+                animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 6.5 }}
               >
-                <div>drwxr-xr-x design_that_converts/</div>
-                <div>drwxr-xr-x systems_that_scale/</div>
-                <div>drwxr-xr-x velocity_that_compounds/</div>
+                <span className="text-cyan-400">root@baumify</span>
+                <span className="text-white">:</span>
+                <span className="text-blue-400">~</span>
+                <span className="text-white">$</span>
+                <span className="ml-2">ls -la ./services</span>
               </motion.div>
               
               <motion.div 
-                className="flex items-center text-green-400 text-sm mt-4"
+                className="text-white/90 ml-6 space-y-2 text-sm"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ delay: 7.5 }}
+                transition={{ delay: 7.2 }}
               >
-                <span>user@baumify:~$ </span>
+                <div className="flex items-center space-x-3">
+                  <span className="text-blue-400">drwxr-xr-x</span>
+                  <span className="text-yellow-400">design_that_converts/</span>
+                  <span className="text-green-400 text-xs">- User-centered experiences that drive results</span>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <span className="text-blue-400">drwxr-xr-x</span>
+                  <span className="text-yellow-400">systems_that_scale/</span>
+                  <span className="text-green-400 text-xs">- Architecture built for growth</span>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <span className="text-blue-400">drwxr-xr-x</span>
+                  <span className="text-yellow-400">velocity_that_compounds/</span>
+                  <span className="text-green-400 text-xs">- Ship MVPs, iterate at light speed</span>
+                </div>
+              </motion.div>
+              
+              <motion.div 
+                className="flex items-center text-green-400 mt-8 pt-4 border-t border-green-500/10"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 8.5 }}
+              >
+                <span className="text-cyan-400">root@baumify</span>
+                <span className="text-white">:</span>
+                <span className="text-blue-400">~</span>
+                <span className="text-white">$</span>
                 <motion.span
-                  className="inline-block w-2 h-4 bg-green-400 ml-1"
+                  className="inline-block w-3 h-5 bg-green-400 ml-2"
                   animate={{ opacity: [1, 0] }}
                   transition={{ duration: 0.8, repeat: Infinity }}
                 />
@@ -227,58 +300,97 @@ const Hero = () => {
           </motion.div>
         </div>
 
-        {/* CTA Buttons with Animations */}
-        <motion.div variants={itemVariants} className="mb-16">
-          <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6">
-            <motion.div
-              whileHover={{ scale: 1.05, y: -5 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <Button 
-                size="lg" 
-                variant="minimal"
-                asChild 
-                className="min-w-[160px] animate-glow-pulse"
-              >
-                <a href="tel:+19015176300" className="flex items-center space-x-2">
-                  <Phone className="h-5 w-5" />
-                  <span>Call Now</span>
-                </a>
-              </Button>
-            </motion.div>
+        {/* Terminal-Style CTA Commands */}
+        <motion.div 
+          variants={itemVariants} 
+          className="mb-16"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 9.5, duration: 0.8 }}
+        >
+          <div className="max-w-4xl mx-auto bg-black/80 backdrop-blur-sm border border-green-500/20 rounded-lg p-6 font-mono">
+            <div className="flex items-center mb-4 text-green-400/80 text-sm">
+              <span className="text-cyan-400">root@baumify</span>
+              <span className="text-white">:</span>
+              <span className="text-blue-400">~</span>
+              <span className="text-white">$</span>
+              <span className="ml-2">./execute_contact.sh</span>
+            </div>
             
-            <motion.div
-              whileHover={{ scale: 1.05, y: -5 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <Button 
-                size="lg" 
-                variant="glass" 
-                asChild 
-                className="min-w-[160px]"
-              >
-                <a href="mailto:david.baum461@gmail.com" className="flex items-center space-x-2">
-                  <Mail className="h-5 w-5" />
-                  <span>Email Us</span>
-                </a>
-              </Button>
-            </motion.div>
+            <div className="grid md:grid-cols-3 gap-4">
+              {[
+                { 
+                  command: "call --now", 
+                  description: "Direct voice connection", 
+                  icon: Phone, 
+                  href: "tel:+19015176300",
+                  color: "text-green-400"
+                },
+                { 
+                  command: "mail --send", 
+                  description: "Digital communication", 
+                  icon: Mail, 
+                  href: "mailto:omer@baumify.com",
+                  color: "text-blue-400"
+                },
+                { 
+                  command: "project --start", 
+                  description: "Initialize new build", 
+                  icon: ArrowRight, 
+                  href: "/contact",
+                  color: "text-yellow-400"
+                }
+              ].map((item, index) => (
+                <motion.div
+                  key={item.command}
+                  className="group relative"
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 10 + index * 0.2 }}
+                  whileHover={{ scale: 1.02 }}
+                >
+                  <motion.a
+                    href={item.href}
+                    className="block bg-black/60 border border-white/10 rounded-lg p-4 hover:border-green-500/40 transition-all duration-300 hover:bg-black/80"
+                    whileHover={{ 
+                      boxShadow: "0 0 20px rgba(34,197,94,0.2)",
+                      y: -3
+                    }}
+                    whileTap={{ scale: 0.98 }}
+                  >
+                    <div className="flex items-center space-x-3 mb-2">
+                      <span className="text-green-400">$</span>
+                      <item.icon className={`h-4 w-4 ${item.color}`} />
+                      <span className={`font-semibold ${item.color}`}>{item.command}</span>
+                    </div>
+                    
+                    <div className="text-white/70 text-sm ml-6 group-hover:text-white/90 transition-colors">
+                      {item.description}
+                    </div>
+                    
+                    <motion.div 
+                      className="absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-green-400 to-transparent"
+                      initial={{ width: 0 }}
+                      whileHover={{ width: "100%" }}
+                      transition={{ duration: 0.3 }}
+                    />
+                  </motion.a>
+                </motion.div>
+              ))}
+            </div>
             
-            <motion.div
-              whileHover={{ scale: 1.05, y: -5 }}
-              whileTap={{ scale: 0.95 }}
+            <motion.div 
+              className="flex items-center mt-4 pt-3 border-t border-white/10 text-green-400/60 text-sm"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 11 }}
             >
-              <Button 
-                size="lg" 
-                variant="minimal"
-                asChild 
-                className="min-w-[180px]"
-              >
-                <a href="/contact" className="flex items-center space-x-2">
-                  <ArrowRight className="h-5 w-5" />
-                  <span>Start a Project</span>
-                </a>
-              </Button>
+              <span>Process completed. Select execution method above ↗</span>
+              <motion.span
+                className="inline-block w-2 h-3 bg-green-400 ml-2"
+                animate={{ opacity: [1, 0] }}
+                transition={{ duration: 0.8, repeat: Infinity }}
+              />
             </motion.div>
           </div>
         </motion.div>
