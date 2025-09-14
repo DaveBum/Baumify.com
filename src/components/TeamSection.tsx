@@ -39,9 +39,9 @@ const TeamSection = () => {
         email: "david.baum461@gmail.com"
       },
       stats: [
-        { label: "Age", value: "16" },
-        { label: "OS Built", value: "1" },
-        { label: "AI Models", value: "3+" }
+        { label: "Languages", value: "27+" },
+        { label: "Frameworks", value: "15+" },
+        { label: "Systems Built", value: "∞" }
       ],
       accent: "text-blue-400",
       gradientFrom: "from-blue-500/20",
