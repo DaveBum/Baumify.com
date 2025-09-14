@@ -32,16 +32,16 @@ const TeamSection = () => {
       title: "Founder & Lead Architect",
       role: "Systems Architect",
       image: davidImage,
-      bio: "Child prodigy turned engineering virtuoso. At 14, I was architecting enterprise systems others couldn't comprehend. By 20, I had mastered full-stack development, ML/AI, and iOS at a level that defies industry standards. 20+ iOS apps, revolutionary ML systems, self-landing rocket simulators—I don't just solve problems, I redefine what's possible. Every system I touch becomes legendary.",
-      skills: ["Systems Architecture", "ML/AI Engineering", "iOS Development", "Backend Systems"],
+      bio: "At just 16 years old, I've redefined what's possible in software engineering. Built my own operating system from scratch, crafted a C compiler, and engineered an AI model that transforms text prompts into functional circuits and 3D models. While others my age are learning Hello World, I'm architecting the impossible. Child prodigy doesn't begin to describe it—I'm operating on a level that transcends age, experience, and conventional limits.",
+      skills: ["Operating Systems", "Compiler Design", "AI/ML Engineering", "3D Modeling AI"],
       contact: {
         phone: "+19015176300",
         email: "david.baum461@gmail.com"
       },
       stats: [
-        { label: "Projects", value: "20+" },
-        { label: "Years Exp.", value: "8+" },
-        { label: "Specialties", value: "4" }
+        { label: "Age", value: "16" },
+        { label: "OS Built", value: "1" },
+        { label: "AI Models", value: "3+" }
       ],
       accent: "text-blue-400",
       gradientFrom: "from-blue-500/20",
