@@ -1,110 +1,173 @@
+// importing react stuff for the sidebar componnet
 import * as React from "react";
+// slot thing from radix for making components flexibel
 import { Slot } from "@radix-ui/react-slot";
+// variant props and cva for styling variants
 import { VariantProps, cva } from "class-variance-authority";
+// panel left icon from lucide icons
 import { PanelLeft } from "lucide-react";
 
+// custom hook to check if mobile device
 import { useIsMobile } from "@/hooks/use-mobile";
+// utility function for class names merging
 import { cn } from "@/lib/utils";
+// button component we made
 import { Button } from "@/components/ui/button";
+// input component for search and stuff
 import { Input } from "@/components/ui/input";
+// separator line component
 import { Separator } from "@/components/ui/separator";
+// sheet components for mobile sidebar overlay
 import { Sheet, SheetContent } from "@/components/ui/sheet";
+// skeleton loading component
 import { Skeleton } from "@/components/ui/skeleton";
+// tooltip components for hover hints
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 
+// cookie name for storing sidebar state in browser
 const SIDEBAR_COOKIE_NAME = "sidebar:state";
+// cookie expiry time in seconds - 7 days total
 const SIDEBAR_COOKIE_MAX_AGE = 60 * 60 * 24 * 7;
+// default width when sidebar is expanded
 const SIDEBAR_WIDTH = "16rem";
+// mobile sidebar width bit wider for touch
 const SIDEBAR_WIDTH_MOBILE = "18rem";
+// icon only mode width super narrow
 const SIDEBAR_WIDTH_ICON = "3rem";
+// keyboard shortcut key for togling sidebar
 const SIDEBAR_KEYBOARD_SHORTCUT = "b";
 
+// typescript type for sidebar context data
 type SidebarContext = {
+  // current state expanded or colapsed
   state: "expanded" | "collapsed";
+  // desktop sidebar open state
   open: boolean;
+  // function to change desktop open state
   setOpen: (open: boolean) => void;
+  // mobile sidebar open state seperate
   openMobile: boolean;
+  // function to change mobile open state
   setOpenMobile: (open: boolean) => void;
+  // boolean if we are on mobile device
   isMobile: boolean;
+  // function to toggle sidebar on/off
   toggleSidebar: () => void;
 };
 
+// creating react context for sidebar state managment
 const SidebarContext = React.createContext<SidebarContext | null>(null);
 
+// custom hook to use sidebar context from anywhere
 function useSidebar() {
+  // get the context value from react
   const context = React.useContext(SidebarContext);
+  // throw error if used outside provider becuase thats bad
   if (!context) {
     throw new Error("useSidebar must be used within a SidebarProvider.");
   }
 
+  // return the context data
   return context;
 }
 
+// main sidebar provider component using forwardref for ref passing
 const SidebarProvider = React.forwardRef<
+  // ref type for html div element
   HTMLDivElement,
+  // props type extending div props plus our custom ones
   React.ComponentProps<"div"> & {
+    // optional default open state prop
     defaultOpen?: boolean;
+    // controlled open state prop
     open?: boolean;
+    // callback when open state changes
     onOpenChange?: (open: boolean) => void;
   }
+// destructuring props with defaults and ref parameter
 >(({ defaultOpen = true, open: openProp, onOpenChange: setOpenProp, className, style, children, ...props }, ref) => {
+  // check if we are on mobile device using custom hook
   const isMobile = useIsMobile();
+  // mobile sidebar state starts closed
   const [openMobile, setOpenMobile] = React.useState(false);
 
-  // This is the internal state of the sidebar.
-  // We use openProp and setOpenProp for control from outside the component.
+  // internal open state for desktop sidebar
   const [_open, _setOpen] = React.useState(defaultOpen);
+  // use controlled prop if provided otherwise internal state
   const open = openProp ?? _open;
+  // memoized function to update open state
   const setOpen = React.useCallback(
+    // can take boolean or function that returns boolean
     (value: boolean | ((value: boolean) => boolean)) => {
+      // if function call it with current state otherwise use value
       const openState = typeof value === "function" ? value(open) : value;
+      // if controlled component call the callback
       if (setOpenProp) {
         setOpenProp(openState);
       } else {
+        // otherwise update internal state
         _setOpen(openState);
       }
 
-      // This sets the cookie to keep the sidebar state.
+      // save the state in browser cookie for persistance
       document.cookie = `${SIDEBAR_COOKIE_NAME}=${openState}; path=/; max-age=${SIDEBAR_COOKIE_MAX_AGE}`;
     },
+    // dependencies for usecallback
     [setOpenProp, open],
   );
 
-  // Helper to toggle the sidebar.
+  // helper function to toggle sidebar state
   const toggleSidebar = React.useCallback(() => {
+    // if mobile toggle mobile state otherwise toggle desktop state
     return isMobile ? setOpenMobile((open) => !open) : setOpen((open) => !open);
   }, [isMobile, setOpen, setOpenMobile]);
 
-  // Adds a keyboard shortcut to toggle the sidebar.
+  // effect to add keyboard shortcut for toggling sidebar
   React.useEffect(() => {
+    // function to handle keyboard events
     const handleKeyDown = (event: KeyboardEvent) => {
+      // check if shortcut key pressed with cmd or ctrl
       if (event.key === SIDEBAR_KEYBOARD_SHORTCUT && (event.metaKey || event.ctrlKey)) {
+        // prevent default browser behavior
         event.preventDefault();
+        // call our toggle function
         toggleSidebar();
       }
     };
 
+    // add event listener to window
     window.addEventListener("keydown", handleKeyDown);
+    // cleanup function to remove listener
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [toggleSidebar]);
 
-  // We add a state so that we can do data-state="expanded" or "collapsed".
-  // This makes it easier to style the sidebar with Tailwind classes.
+  // calculate state string based on open boolean
   const state = open ? "expanded" : "collapsed";
 
+  // memoized context value to prevent unecessary rerenders
   const contextValue = React.useMemo<SidebarContext>(
+    // return object with all context values
     () => ({
+      // current state string
       state,
+      // desktop open boolean
       open,
+      // desktop setter function
       setOpen,
+      // mobile detection boolean
       isMobile,
+      // mobile open boolean
       openMobile,
+      // mobile setter function
       setOpenMobile,
+      // toggle function
       toggleSidebar,
     }),
+    // dependency array for memo
     [state, open, setOpen, isMobile, openMobile, setOpenMobile, toggleSidebar],
   );
 
+  // render the provider with context and tooltip provider
   return (
     <SidebarContext.Provider value={contextValue}>
       <TooltipProvider delayDuration={0}>
@@ -126,19 +189,30 @@ const SidebarProvider = React.forwardRef<
     </SidebarContext.Provider>
   );
 });
+// set display name for react dev tools debugging
 SidebarProvider.displayName = "SidebarProvider";
 
+// main sidebar component with forwardref for ref passing
 const Sidebar = React.forwardRef<
+  // ref type for html div element
   HTMLDivElement,
+  // props extending div props plus sidebar specific ones
   React.ComponentProps<"div"> & {
+    // which side to show sidebar left or right
     side?: "left" | "right";
+    // visual variant of sidebar appearance
     variant?: "sidebar" | "floating" | "inset";
+    // how sidebar collapses behavior
     collapsible?: "offcanvas" | "icon" | "none";
   }
+// destructure props with defaults
 >(({ side = "left", variant = "sidebar", collapsible = "offcanvas", className, children, ...props }, ref) => {
+  // get sidebar context values we need
   const { isMobile, state, openMobile, setOpenMobile } = useSidebar();
 
+  // if collapsible is none render simple static sidebar
   if (collapsible === "none") {
+    // return basic div with sidebar styling
     return (
       <div
         className={cn("flex h-full w-[--sidebar-width] flex-col bg-sidebar text-sidebar-foreground", className)}
@@ -150,7 +224,9 @@ const Sidebar = React.forwardRef<
     );
   }
 
+  // if on mobile device use sheet overlay instead
   if (isMobile) {
+    // return sheet component for mobile overlay
     return (
       <Sheet open={openMobile} onOpenChange={setOpenMobile} {...props}>
         <SheetContent
@@ -196,7 +272,7 @@ const Sidebar = React.forwardRef<
           side === "left"
             ? "left-0 group-data-[collapsible=offcanvas]:left-[calc(var(--sidebar-width)*-1)]"
             : "right-0 group-data-[collapsible=offcanvas]:right-[calc(var(--sidebar-width)*-1)]",
-          // Adjust the padding for floating and inset variants.
+          // Variant padding
           variant === "floating" || variant === "inset"
             ? "p-2 group-data-[collapsible=icon]:w-[calc(var(--sidebar-width-icon)_+_theme(spacing.4)_+2px)]"
             : "group-data-[collapsible=icon]:w-[--sidebar-width-icon] group-data-[side=left]:border-r group-data-[side=right]:border-l",

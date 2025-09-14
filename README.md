@@ -1,22 +1,14 @@
-# Welcome to your Lovable project
+# Byte Forge Glow
 
-## Project info
+A modern, sophisticated web application built with cutting-edge technologies.
 
-**URL**: https://lovable.dev/projects/c705c2b3-40d8-46ef-a6e8-ffb024736426
+**Copyright © 2024 David Baum. All rights reserved.**
 
-## How can I edit this code?
-
-There are several ways of editing your application.
-
-**Use Lovable**
-
-Simply visit the [Lovable Project](https://lovable.dev/projects/c705c2b3-40d8-46ef-a6e8-ffb024736426) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
+## How to work with this code
 
 **Use your preferred IDE**
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+Clone this repository and work locally with your favorite development environment.
 
 The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
 
@@ -62,12 +54,11 @@ This project is built with:
 
 ## How can I deploy this project?
 
-Simply open [Lovable](https://lovable.dev/projects/c705c2b3-40d8-46ef-a6e8-ffb024736426) and click on Share -> Publish.
+This project can be deployed to any static hosting service that supports Node.js applications. Popular options include:
 
-## Can I connect a custom domain to my Lovable project?
+- Vercel
+- Netlify
+- GitHub Pages
+- AWS S3/CloudFront
 
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+Simply run `npm run build` to create a production build, then deploy the `dist` folder to your chosen hosting platform.

@@ -1,16 +1,27 @@
 {
+  // no files directly compiled here using project references instead
   "files": [],
+  // project references to separate configs for app and node
   "references": [{ "path": "./tsconfig.app.json" }, { "path": "./tsconfig.node.json" }],
+  // typescript compiler options
   "compilerOptions": {
+    // base url for module resolution
     "baseUrl": ".",
+    // path mapping for @ alias to src folder
     "paths": {
       "@/*": ["./src/*"]
     },
+    // allow implicit any types for flexibility
     "noImplicitAny": false,
+    // allow unused function parameters
     "noUnusedParameters": false,
+    // skip type checking of declaration files for speed
     "skipLibCheck": true,
+    // allow javascript files in typescript project
     "allowJs": true,
+    // allow unused local variables
     "noUnusedLocals": false,
+    // disable strict null checks for easier development
     "strictNullChecks": false
   }
 }

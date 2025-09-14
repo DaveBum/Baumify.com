@@ -1,5 +1,8 @@
+// button component for call to action buttons
 import { Button } from "@/components/ui/button";
+// lucide icons for contact information
 import { Phone, Mail, ArrowRight } from "lucide-react";
+// company logo image asset
 import logo from "@/assets/logo.png";
 
 const Footer = () => {
