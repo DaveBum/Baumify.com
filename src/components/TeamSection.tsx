@@ -50,7 +50,7 @@ const TeamSection = () => {
       role: "Systems Architect",
       image: davidImage,
       bio: "I'm 16, and I've been building projects that push me to learn things most people don't touch until college or beyond. I've written my own operating system completely from scratch—designing the syscalls, memory manager, and thread scheduler myself. I even built a self-compiling C compiler, just to see if I could. Beyond that, I've worked on AI systems that generate real results from simple prompts, like creating circuits, 3D models, and even full software layouts. I've built everything from rocket-landing simulators to experimental brain-computer interface projects, always chasing the next challenge.",
-      skills: ["Everything - There isn't a single thing in technology I can't master"],
+      skills: ["There isn't a single thing in tech that I can't master or haven't already mastered"],
       contact: {
         phone: "+19015176300",
         email: "david.baum461@gmail.com"
