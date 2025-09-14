@@ -29,11 +29,11 @@ const TeamSection = () => {
   const teamMembers = [
     {
       name: "David Baum",
-      title: "Founder & Lead Architect",
+      title: "Founder & Lead Architect", 
       role: "Systems Architect",
       image: davidImage,
-      bio: "At just 16 years old, I've redefined what's possible in software engineering. Built my own operating system from scratch, crafted a C compiler, and engineered an AI model that transforms text prompts into functional circuits and 3D models. While others my age are learning Hello World, I'm architecting the impossible. Child prodigy doesn't begin to describe it—I'm operating on a level that transcends age, experience, and conventional limits.",
-      skills: ["Operating Systems", "Compiler Design", "AI/ML Engineering", "3D Modeling AI"],
+      bio: "At 16, I've already transcended what most engineers achieve in lifetimes. I've built my own operating system from scratch—every kernel, every driver, every line of assembly code. Crafted a C compiler that rivals industry standards. But my masterpiece? An AI model that transforms simple text prompts into fully functional circuits and intricate 3D models. While others study algorithms, I create worlds. I don't just code—I architect reality itself.",
+      skills: ["Operating Systems", "Compiler Engineering", "AI Architecture", "Hardware Design"],
       contact: {
         phone: "+19015176300",
         email: "david.baum461@gmail.com"
