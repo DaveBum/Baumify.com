@@ -1,7 +1,7 @@
 import { motion, useInView, useMotionValue, useTransform } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { Phone, Mail, ExternalLink, Github, Linkedin, MapPin, Calendar, Zap } from "lucide-react";
-import { useRef, useEffect } from "react";
+import { Phone, Mail, ExternalLink, Github, Linkedin, MapPin, Calendar, Zap, ChevronDown } from "lucide-react";
+import { useRef, useEffect, useState } from "react";
 import davidImage from "@/assets/david.png";
 import omerImage from "@/assets/omer.jpg";
 import { ScrollReveal, StaggerContainer, StaggerItem } from "./ScrollAnimations";
@@ -9,6 +9,7 @@ import { ScrollReveal, StaggerContainer, StaggerItem } from "./ScrollAnimations"
 const TeamSection = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
+  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   
   // Mouse tracking for card tilt effect
   const mouseX = useMotionValue(0);
@@ -26,6 +27,22 @@ const TeamSection = () => {
     mouseY.set(event.clientY - centerY);
   };
 
+  const davidLanguages = [
+    "Assembly", "C", "C++", "C#", "Rust", "Go", "JavaScript", "TypeScript", "Python", "Java", 
+    "Kotlin", "Swift", "Objective-C", "Ruby", "PHP", "Perl", "Lua", "Haskell", "OCaml", "F#", 
+    "Erlang", "Elixir", "Clojure", "Scala", "R", "MATLAB", "Fortran", "COBOL", "Ada", "Verilog"
+  ];
+
+  const davidFrameworks = [
+    "React", "Next.js", "Vue.js", "Angular", "Svelte", "Node.js", "Express", "Django", "Flask", 
+    "FastAPI", "Spring Boot", "ASP.NET", ".NET Core", "Laravel", "Rails", "Phoenix", "Gin", 
+    "Fiber", "TensorFlow", "PyTorch", "Keras", "OpenCV", "CUDA", "OpenGL", "Vulkan"
+  ];
+
+  const toggleDropdown = (type: string) => {
+    setActiveDropdown(activeDropdown === type ? null : type);
+  };
+
   const teamMembers = [
     {
       name: "David Baum",
@@ -39,8 +56,8 @@ const TeamSection = () => {
         email: "david.baum461@gmail.com"
       },
       stats: [
-        { label: "Languages", value: "27+" },
-        { label: "Frameworks", value: "15+" },
+        { label: "Languages", value: "30+", type: "languages" },
+        { label: "Frameworks", value: "25+", type: "frameworks" },
         { label: "Systems Built", value: "∞" }
       ],
       accent: "text-blue-400",
@@ -246,18 +263,58 @@ const TeamSection = () => {
                       {member.stats.map((stat, statIndex) => (
                         <motion.div 
                           key={stat.label}
-                          className="text-center"
+                          className="text-center relative"
                           initial={{ opacity: 0, y: 10 }}
                           whileInView={{ opacity: 1, y: 0 }}
                           transition={{ delay: statIndex * 0.1 }}
                           viewport={{ once: true }}
                         >
-                          <div className="text-lg md:text-xl font-bold text-white mb-1">
-                            {stat.value}
-                          </div>
-                          <div className="text-xs text-white/60 font-medium">
-                            {stat.label}
-                          </div>
+                          <motion.div
+                            className={`cursor-pointer ${member.name === "David Baum" && stat.type ? "hover:bg-white/5 rounded-lg p-2 -m-2" : ""}`}
+                            onClick={() => member.name === "David Baum" && stat.type && toggleDropdown(stat.type)}
+                            whileHover={member.name === "David Baum" && stat.type ? { scale: 1.05 } : {}}
+                          >
+                            <div className={`text-lg md:text-xl font-bold text-white mb-1 flex items-center justify-center gap-1 ${
+                              member.name === "David Baum" && stat.type ? "hover:text-blue-400" : ""
+                            }`}>
+                              {stat.value}
+                              {member.name === "David Baum" && stat.type && (
+                                <ChevronDown className={`h-3 w-3 transition-transform ${
+                                  activeDropdown === stat.type ? "rotate-180" : ""
+                                }`} />
+                              )}
+                            </div>
+                            <div className="text-xs text-white/60 font-medium">
+                              {stat.label}
+                            </div>
+                          </motion.div>
+                          
+                          {/* Dropdown */}
+                          {member.name === "David Baum" && stat.type && activeDropdown === stat.type && (
+                            <motion.div
+                              className="absolute top-full mt-2 left-1/2 transform -translate-x-1/2 z-50 bg-black/95 backdrop-blur-lg border border-white/20 rounded-xl shadow-2xl p-4 w-64 max-h-40 overflow-y-auto"
+                              initial={{ opacity: 0, y: -10, scale: 0.95 }}
+                              animate={{ opacity: 1, y: 0, scale: 1 }}
+                              transition={{ duration: 0.2 }}
+                            >
+                              <div className="text-xs text-blue-400 font-semibold mb-2 text-center">
+                                {stat.type === "languages" ? "Programming Languages" : "Frameworks & Technologies"}
+                              </div>
+                              <div className="grid grid-cols-2 gap-1">
+                                {(stat.type === "languages" ? davidLanguages : davidFrameworks).map((item, i) => (
+                                  <motion.div
+                                    key={item}
+                                    className="text-xs text-white/90 py-1 px-2 bg-white/5 rounded hover:bg-white/10 transition-colors"
+                                    initial={{ opacity: 0, x: -10 }}
+                                    animate={{ opacity: 1, x: 0 }}
+                                    transition={{ delay: i * 0.02 }}
+                                  >
+                                    {item}
+                                  </motion.div>
+                                ))}
+                              </div>
+                            </motion.div>
+                          )}
                         </motion.div>
                       ))}
                     </div>
