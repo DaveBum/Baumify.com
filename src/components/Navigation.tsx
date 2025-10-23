@@ -18,15 +18,7 @@ const Navigation = () => {
   );
   
   const borderOpacity = useTransform(scrollY, [0, 100], [0, 0.2]);
-  const borderOpacity = useTransform(
-    scrollY,
-    // scroll input range
-    [0, 100],
-    // opacity output range
-    [0, 0.2]
-  );
 
-  // effect hook to listen for scroll events
   useEffect(() => {
     // function to handle scroll position changes
     const handleScroll = () => {
