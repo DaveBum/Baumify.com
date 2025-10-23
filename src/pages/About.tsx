@@ -3,8 +3,11 @@ import { Target, Zap, Shield, Users, Code2, Rocket, Award, TrendingUp } from "lu
 import { Button } from "@/components/ui/button";
 import TeamSection from "../components/TeamSection";
 import { ScrollReveal, StaggerContainer, StaggerItem } from "../components/ScrollAnimations";
+import { useSEO, SEO_CONFIG } from "@/hooks/useSEO";
 
 const About = () => {
+  useSEO(SEO_CONFIG.about);
+  
   const stats = [
     { number: "98%", label: "Client Satisfaction", icon: Award },
     { number: "3", label: "Elite Developers", icon: Users },

@@ -21,8 +21,11 @@ import {
   Phone
 } from "lucide-react";
 import AnimatedBackground from "@/components/AnimatedBackground";
+import { useSEO, SEO_CONFIG } from "@/hooks/useSEO";
 
 const Services = () => {
+  useSEO(SEO_CONFIG.services);
+  
   const ref = useRef(null);
   const heroRef = useRef(null);
   const isInView = useInView(ref, { once: true });
