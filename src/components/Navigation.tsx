@@ -1,37 +1,23 @@
-// react hooks for state and lifecycle management
 import { useState, useEffect } from "react";
-// react router hooks for navigation and location
 import { Link, useLocation } from "react-router-dom";
-// framer motion for animations and scroll effects
 import { motion, useScroll, useTransform } from "framer-motion";
-// custom button component we built
 import { Button } from "@/components/ui/button";
-// lucide icons for phone mail menu and close
 import { Phone, Mail, Menu, X } from "lucide-react";
-// company logo image import
 import logo from "@/assets/logo.png";
 
-// main navigation component function
 const Navigation = () => {
-  // state for mobile menu open/closed
   const [isOpen, setIsOpen] = useState(false);
-  // state for scroll detection background change
   const [scrolled, setScrolled] = useState(false);
-  // get current route location from router
   const location = useLocation();
-  // scroll position tracking from framer motion
   const { scrollY } = useScroll();
   
-  // transform scroll position to background color opacity
   const backgroundColor = useTransform(
     scrollY,
-    // input range scroll values
     [0, 100],
-    // output range background colors transparent to dark
     ["rgba(8, 8, 8, 0)", "rgba(8, 8, 8, 0.95)"]
   );
   
-  // transform scroll to border opacity for glassmorphism effect
+  const borderOpacity = useTransform(scrollY, [0, 100], [0, 0.2]);
   const borderOpacity = useTransform(
     scrollY,
     // scroll input range
