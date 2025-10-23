@@ -44,7 +44,7 @@ const Hero = () => {
     },
   };
 
-  const title = "We architect, design, and ship elite software—fast.";
+  const title = "We architect, design, and ship elite software - fast.";
   
   return (
     <section ref={ref} className="relative min-h-screen flex flex-col justify-center overflow-hidden">
@@ -132,12 +132,12 @@ const Hero = () => {
         {/* Enhanced Terminal Welcome Message */}
         <div className="mb-12">
           <motion.div 
-            className="relative bg-black/95 backdrop-blur-lg border border-green-500/20 rounded-xl p-8 max-w-5xl mx-auto font-mono text-left shadow-[0_0_50px_rgba(34,197,94,0.15)] overflow-hidden"
+            className="relative bg-black/95 backdrop-blur-lg border-2 border-green-500/60 rounded-xl p-8 max-w-5xl mx-auto font-mono text-left overflow-hidden"
             initial={{ opacity: 0, y: 50, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             transition={{ delay: 0.3, duration: 1, ease: "easeOut" }}
             whileHover={{ 
-              boxShadow: "0 0 80px rgba(34,197,94,0.25)",
+              borderColor: "rgba(34,197,94,0.8)",
               scale: 1.02,
               transition: { duration: 0.3 }
             }}
@@ -238,7 +238,7 @@ const Hero = () => {
               >
                 <span className="text-green-300">{'>'}</span>
                 <TerminalTypewriter 
-                  text=" We architect, design, and ship elite software—fast."
+                  text=" We architect, design, and ship elite software - fast."
                   delay={3800}
                   speed={80}
                 />
@@ -308,7 +308,7 @@ const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 9.5, duration: 0.8 }}
         >
-          <div className="max-w-4xl mx-auto bg-black/80 backdrop-blur-sm border border-green-500/20 rounded-lg p-6 font-mono">
+          <div className="max-w-4xl mx-auto bg-black/80 backdrop-blur-sm border-2 border-green-500/60 rounded-lg p-6 font-mono hover:border-green-500/80 transition-colors duration-300">
             <div className="flex items-center mb-4 text-green-400/80 text-sm">
               <span className="text-cyan-400">root@baumify</span>
               <span className="text-white">:</span>

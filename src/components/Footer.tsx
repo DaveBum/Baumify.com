@@ -10,17 +10,17 @@ const Footer = () => {
     <footer className="bg-card/50 border-t border-border/20">
       <div className="container mx-auto px-6 py-12">
         {/* Main Footer Content */}
-        <div className="grid md:grid-cols-4 gap-8 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
           {/* Brand & Description */}
-          <div className="md:col-span-2">
+          <div className="md:col-span-1">
             <div className="flex items-center space-x-3 mb-4">
               <img src={logo} alt="Baumify" className="h-8 w-auto filter invert" />
               <span className="text-xl font-semibold">
                 Baumify
               </span>
             </div>
-            <p className="text-muted-foreground leading-relaxed mb-6 max-w-md">
-              We architect, design, and ship elite software—fast. Surgical precision. 
+            <p className="text-muted-foreground leading-relaxed mb-6">
+              We architect, design, and ship elite software - fast. Surgical precision. 
               Systems thinking. Relentless shipping.
             </p>
             {/* Always-visible CTAs */}
@@ -46,25 +46,46 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Services */}
-          <div>
-            <h3 className="font-semibold text-foreground mb-4">Services</h3>
-            <ul className="space-y-2 text-sm">
-              <li><a href="/services" className="text-muted-foreground hover:text-primary transition-colors">Full-stack Development</a></li>
-              <li><a href="/services" className="text-muted-foreground hover:text-primary transition-colors">Mobile Apps (iOS)</a></li>
-              <li><a href="/services" className="text-muted-foreground hover:text-primary transition-colors">Cloud & DevOps</a></li>
-              <li><a href="/services" className="text-muted-foreground hover:text-primary transition-colors">Data & ML</a></li>
-              <li><a href="/services" className="text-muted-foreground hover:text-primary transition-colors">Product Strategy</a></li>
+          {/* Specializations */}
+          <div className="md:col-span-1">
+            <h3 className="font-semibold text-foreground mb-4">Specializations</h3>
+            <ul className="space-y-2 text-sm text-muted-foreground">
+              <li className="flex items-start">
+                <span className="text-primary mr-2">→</span>
+                <span>Full-Stack Web Applications</span>
+              </li>
+              <li className="flex items-start">
+                <span className="text-primary mr-2">→</span>
+                <span>Mobile-First Development</span>
+              </li>
+              <li className="flex items-start">
+                <span className="text-primary mr-2">→</span>
+                <span>Cloud Architecture & DevOps</span>
+              </li>
+              <li className="flex items-start">
+                <span className="text-primary mr-2">→</span>
+                <span>API Design & Integration</span>
+              </li>
+              <li className="flex items-start">
+                <span className="text-primary mr-2">→</span>
+                <span>Real-Time Systems</span>
+              </li>
+              <li className="flex items-start">
+                <span className="text-primary mr-2">→</span>
+                <span>E-commerce & Payment Solutions</span>
+              </li>
             </ul>
           </div>
 
           {/* Company */}
-          <div>
+          <div className="md:col-span-1">
             <h3 className="font-semibold text-foreground mb-4">Company</h3>
             <ul className="space-y-2 text-sm">
+              <li><a href="/" className="text-muted-foreground hover:text-primary transition-colors">Home</a></li>
+              <li><a href="/work-in-progress" className="text-muted-foreground hover:text-primary transition-colors">Services</a></li>
+              <li><a href="/work-in-progress" className="text-muted-foreground hover:text-primary transition-colors">Work</a></li>
               <li><a href="/about" className="text-muted-foreground hover:text-primary transition-colors">About</a></li>
-              <li><a href="/work" className="text-muted-foreground hover:text-primary transition-colors">Case Studies</a></li>
-              <li><a href="/blog" className="text-muted-foreground hover:text-primary transition-colors">Blog</a></li>
+              <li><a href="/work-in-progress" className="text-muted-foreground hover:text-primary transition-colors">Blog</a></li>
               <li><a href="/contact" className="text-muted-foreground hover:text-primary transition-colors">Contact</a></li>
             </ul>
           </div>
@@ -91,16 +112,16 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="pt-8 border-t border-border/20 flex flex-col md:flex-row justify-between items-center gap-4">
         <div className="text-sm text-muted-foreground">
-          © 2024 Baumify. All rights reserved.
+          © 2025 Baumify. All rights reserved.
         </div>
           <div className="flex items-center space-x-6 text-sm">
-            <a href="/privacy" className="text-muted-foreground hover:text-primary transition-colors">
+            <a href="/work-in-progress" className="text-muted-foreground hover:text-primary transition-colors">
               Privacy Policy
             </a>
-            <a href="/terms" className="text-muted-foreground hover:text-primary transition-colors">
+            <a href="/work-in-progress" className="text-muted-foreground hover:text-primary transition-colors">
               Terms of Service
             </a>
-            <a href="tel:+19015176300" className="text-primary hover:text-primary-glow transition-colors font-mono">
+            <a href="tel:+19015176300" className="text-primary hover:text-white transition-colors font-mono">
               +1 (901) 517-6300
             </a>
           </div>

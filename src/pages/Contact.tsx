@@ -45,16 +45,6 @@ const Contact = () => {
                     </div>
                   </a>
                 </Button>
-                
-                <Button variant="glass" size="lg" asChild className="w-full justify-start">
-                  <a href="mailto:david.baum461@gmail.com" className="flex items-center space-x-3">
-                    <Mail className="h-5 w-5" />
-                    <div className="text-left">
-                      <div className="font-semibold">Email us</div>
-                      <div className="text-sm opacity-90">david.baum461@gmail.com</div>
-                    </div>
-                  </a>
-                </Button>
               </div>
             </div>
 

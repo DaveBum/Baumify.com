@@ -4,6 +4,7 @@ import { Phone, Mail, ExternalLink, Github, Linkedin, MapPin, Calendar, Zap, Che
 import { useRef, useEffect, useState } from "react";
 import davidImage from "@/assets/david.png";
 import omerImage from "@/assets/omer.jpg";
+import akivaImage from "@/assets/akiva.jpg";
 import { ScrollReveal, StaggerContainer, StaggerItem } from "./ScrollAnimations";
 
 const TeamSection = () => {
@@ -39,6 +40,10 @@ const TeamSection = () => {
     "SDL2", "App Designer", "Mojolicious", "Dream", "Ring", "Giraffe", "Cowboy", "WPF", "Jester", "Hardhat"
   ];
 
+  const omerLanguages = [
+    "Java", "Kotlin", "Python", "JavaScript", "C++"
+  ];
+
   const toggleDropdown = (type: string) => {
     setActiveDropdown(activeDropdown === type ? null : type);
   };
@@ -49,8 +54,8 @@ const TeamSection = () => {
       title: "Founder & Lead Architect", 
       role: "System architect and frontend engineer",
       image: davidImage,
-      bio: "I'm 16, and I've been building projects that push me to learn things most people don't touch until college or beyond. I've written my own operating system completely from scratch—designing the syscalls, memory manager, and thread scheduler myself. I even built a self-compiling C compiler, just to see if I could. Beyond that, I've worked on AI systems that generate real results from simple prompts, like creating circuits, 3D models, and even full software layouts. I've built everything from rocket-landing simulators to experimental brain-computer interface projects, always chasing the next challenge.",
-      skills: ["There isn't a single thing in tech that I can't master or haven't already mastered"],
+      bio: "Builder who wrote a minimal OS, now building a self-hosting C compiler. Currently employed at Sud Scrub as a hardware/software/firmware & AI solutions engineer/marketer; ex co-head architect of machine learning applications at bash, a Johns Hopkins affiliated startup, did not launch.",
+      skills: ["Everything"],
       contact: {
         phone: "+19015176300",
         email: "david.baum461@gmail.com"
@@ -66,22 +71,38 @@ const TeamSection = () => {
     },
     {
       name: "Omer Zalman", 
-      title: "Junior Developer & Co-Founder",
-      role: "Implementation Specialist",
+      title: "Senior AI Engineer & Co-Founder",
+      role: "AI & Full-Stack Development",
       image: omerImage,
-      bio: "idk good at kotlin and java",
-      skills: ["Quality Assurance"],
+      bio: "Senior AI engineer and full-stack developer with five years of experience building intelligent digital solutions. Specializes in training neural networks, fine-tuning models in PyTorch and TensorFlow, and crafting systems in C++ and modern web frameworks. Blends creativity with technical precision to solve complex problems with clarity and originality. Passionate about AI research, chess strategy, and quantum computing.",
+      skills: ["Python", "C++", "PyTorch", "TensorFlow", "Full-Stack Development", "AI/ML", "Web & App Development", "Neural Networks"],
       contact: {
-        email: "omer@baumify.com"
+        email: "chunklingo@gmail.com"
       },
       stats: [
-        { label: "Deploys/Day", value: "15+" },
-        { label: "Test Coverage", value: "98%" },
-        { label: "Uptime", value: "99.9%" }
+        { label: "Years Building", value: "5+" },
+        { label: "Focus Areas", value: "3" },
+        { label: "Clients Secured", value: "50+" }
       ],
       accent: "text-emerald-400",
       gradientFrom: "from-emerald-500/20",
       gradientTo: "to-teal-500/20"
+    },
+    {
+      name: "Akiva Levine",
+      title: "AI Architect & Automation Engineer",
+      role: "AI Research & Product Development",
+      image: akivaImage,
+      bio: "Brings hands-on experience in artificial intelligence, software development, and automation to the team. Has built multiple AI-driven projects, including medical applications that analyze data through API-based machine learning, as well as a personal blog platform coded in HTML, Python, and CSS. Background spans applied AI research, automation design, and product development, with a focus on integrating intelligent systems into real-world business solutions. Blends technical skill and creative problem-solving to help clients transform complex technology into clear, scalable advantage.",
+      skills: ["Python", "AI/ML", "Automation"],
+      contact: {
+        phone: "+19177348531",
+        email: undefined
+      },
+      stats: [],
+      accent: "text-purple-400",
+      gradientFrom: "from-purple-500/20",
+      gradientTo: "to-pink-500/20"
     }
   ];
 
@@ -163,7 +184,7 @@ const TeamSection = () => {
               transition={{ delay: 0.3, duration: 0.8 }}
               viewport={{ once: true }}
             >
-              Two developers, one relentless focus: architect and ship elite software that scales. 
+              Three developers, one relentless focus: architect and ship elite software that scales. 
               Combined decades of experience distilled into rapid, reliable execution.
             </motion.p>
           </div>
@@ -240,7 +261,8 @@ const TeamSection = () => {
                     </motion.p>
 
                     {/* Stats */}
-                    <div className="grid grid-cols-3 gap-4 mb-6 py-4 border-y border-white/10">
+                    {member.stats.length > 0 && (
+                      <div className="grid grid-cols-3 gap-4 mb-6 py-4 border-y border-white/10">
                       {member.stats.map((stat, statIndex) => (
                         <motion.div 
                           key={stat.label}
@@ -251,15 +273,15 @@ const TeamSection = () => {
                           viewport={{ once: true }}
                         >
                           <motion.div
-                            className={`cursor-pointer ${member.name === "David Baum" && stat.type ? "hover:bg-white/5 rounded-lg p-2 -m-2" : ""}`}
-                            onClick={() => member.name === "David Baum" && stat.type && toggleDropdown(stat.type)}
-                            whileHover={member.name === "David Baum" && stat.type ? { scale: 1.05 } : {}}
+                            className={`cursor-pointer ${stat.type ? "hover:bg-white/5 rounded-lg p-2 -m-2" : ""}`}
+                            onClick={() => stat.type && toggleDropdown(stat.type)}
+                            whileHover={stat.type ? { scale: 1.05 } : {}}
                           >
                             <div className={`text-lg md:text-xl font-bold text-white mb-1 flex items-center justify-center gap-1 ${
-                              member.name === "David Baum" && stat.type ? "hover:text-blue-400" : ""
+                              stat.type ? "hover:text-blue-400" : ""
                             }`}>
                               {stat.value}
-                              {member.name === "David Baum" && stat.type && (
+                              {stat.type && (
                                 <ChevronDown className={`h-3 w-3 transition-transform ${
                                   activeDropdown === stat.type ? "rotate-180" : ""
                                 }`} />
@@ -271,7 +293,7 @@ const TeamSection = () => {
                           </motion.div>
                           
                           {/* Dropdown */}
-                          {member.name === "David Baum" && stat.type && activeDropdown === stat.type && (
+                          {stat.type && activeDropdown === stat.type && (
                             <motion.div
                               className="absolute top-full mt-2 left-1/2 transform -translate-x-1/2 z-50 bg-black/95 backdrop-blur-lg border border-white/20 rounded-xl shadow-2xl p-4 w-64 max-h-40 overflow-y-auto"
                               initial={{ opacity: 0, y: -10, scale: 0.95 }}
@@ -279,10 +301,14 @@ const TeamSection = () => {
                               transition={{ duration: 0.2 }}
                             >
                               <div className="text-xs text-blue-400 font-semibold mb-2 text-center">
-                                {stat.type === "languages" ? "Programming Languages" : "Frameworks & Technologies"}
+                                {stat.type === "languages" ? "Programming Languages" : 
+                                 stat.type === "frameworks" ? "Frameworks & Technologies" :
+                                 "Programming Languages"}
                               </div>
                               <div className="grid grid-cols-2 gap-1">
-                                {(stat.type === "languages" ? davidLanguages : davidFrameworks).map((item, i) => (
+                                {(stat.type === "languages" ? davidLanguages : 
+                                  stat.type === "frameworks" ? davidFrameworks :
+                                  stat.type === "omer-languages" ? omerLanguages : []).map((item, i) => (
                                   <motion.div
                                     key={item}
                                     className="text-xs text-white/90 py-1 px-2 bg-white/5 rounded hover:bg-white/10 transition-colors"
@@ -299,9 +325,10 @@ const TeamSection = () => {
                         </motion.div>
                       ))}
                     </div>
+                    )}
                     
                     {/* Skills */}
-                    <div className="mb-6">
+                    <div className={`mb-6 ${member.stats.length === 0 ? 'pt-6 border-t border-white/10' : ''}`}>
                       <div className="text-sm font-semibold text-white/80 mb-3">Expertise</div>
                       <div className="flex flex-wrap gap-2">
                         {member.skills.map((skill, skillIndex) => (
@@ -342,23 +369,25 @@ const TeamSection = () => {
                         </motion.div>
                       )}
                       
-                      <motion.div 
-                        whileHover={{ scale: 1.02, y: -1 }} 
-                        whileTap={{ scale: 0.98 }}
-                        className="flex-1"
-                      >
-                        <Button 
-                          size="sm" 
-                          variant="glass" 
-                          asChild 
-                          className="w-full bg-white/5 border-white/10 hover:bg-white/10 text-white"
+                      {member.contact.email && (
+                        <motion.div 
+                          whileHover={{ scale: 1.02, y: -1 }} 
+                          whileTap={{ scale: 0.98 }}
+                          className="flex-1"
                         >
-                          <a href={`mailto:${member.contact.email}`} className="flex items-center justify-center space-x-2">
-                            <Mail className="h-4 w-4" />
-                            <span>Email {member.name.split(' ')[0]}</span>
-                          </a>
-                        </Button>
-                      </motion.div>
+                          <Button 
+                            size="sm" 
+                            variant="glass" 
+                            asChild 
+                            className="w-full bg-white/5 border-white/10 hover:bg-white/10 text-white hover:text-white"
+                          >
+                            <a href={`mailto:${member.contact.email}`} className="flex items-center justify-center space-x-2 text-white hover:text-white">
+                              <Mail className="h-4 w-4" />
+                              <span>Email {member.name.split(' ')[0]}</span>
+                            </a>
+                          </Button>
+                        </motion.div>
+                      )}
                     </div>
                   </motion.div>
                 </div>

@@ -6,9 +6,8 @@ import { ScrollReveal, StaggerContainer, StaggerItem } from "../components/Scrol
 
 const About = () => {
   const stats = [
-    { number: "50+", label: "Projects Delivered", icon: Rocket },
     { number: "98%", label: "Client Satisfaction", icon: Award },
-    { number: "2", label: "Elite Developers", icon: Users },
+    { number: "3", label: "Elite Developers", icon: Users },
     { number: "24/7", label: "Continuous Delivery", icon: TrendingUp }
   ];
 
@@ -26,12 +25,12 @@ const About = () => {
     {
       icon: Shield,
       title: "Battle-Tested Solutions",
-      description: "We don't just write code—we forge systems that withstand real-world chaos. Scalable, secure, and maintainable by design."
+      description: "We don't just write code - we forge systems that withstand real-world chaos. Scalable, secure, and maintainable by design."
     },
     {
       icon: Code2,
       title: "Full-Stack Mastery",
-      description: "From iOS apps to ML pipelines, from frontend finesse to backend architecture—we speak every layer of the stack fluently."
+      description: "From iOS apps to ML pipelines, from frontend finesse to backend architecture - we speak every layer of the stack fluently."
     }
   ];
 
@@ -107,7 +106,7 @@ const About = () => {
               Founded on the principle that elite software requires both{" "}
               <span className="text-foreground font-semibold">relentless precision</span> and{" "}
               <span className="text-foreground font-semibold">uncompromising speed</span>. 
-              We don't just build applications—we forge digital experiences that scale, perform, and endure.
+              We don't just build applications - we forge digital experiences that scale, perform, and endure.
             </motion.p>
           </ScrollReveal>
         </div>
@@ -116,7 +115,7 @@ const About = () => {
       {/* Stats Section */}
       <section className="py-16 bg-panel/20">
         <div className="container mx-auto px-6">
-          <StaggerContainer className="grid grid-cols-2 md:grid-cols-4 gap-8">
+          <StaggerContainer className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
             {stats.map((stat, index) => (
               <StaggerItem key={stat.label}>
                 <motion.div 
@@ -201,7 +200,7 @@ const About = () => {
                     architect-level thinking
                   </motion.span>
                   {" "}without the enterprise overhead. We compress decades of engineering wisdom into 
-                  rapid execution—delivering systems that don't just work today, but scale for tomorrow.
+                  rapid execution - delivering systems that don't just work today, but scale for tomorrow.
                 </motion.p>
               </motion.div>
             </div>
