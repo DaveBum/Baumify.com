@@ -39,9 +39,13 @@
 5. Configure build settings:
    - **Project name:** `baumify` (must match the workflow file!)
    - **Production branch:** `main`
-   - **Build command:** `bun run build`
+   - **Framework preset:** `Vite`
+   - **Build command:** `npm install && npm run build`
    - **Build output directory:** `dist`
+   - **Node version:** `22` (in Environment Variables section)
 6. Click **"Save and Deploy"**
+
+**Note:** We're using npm in Cloudflare because their build environment doesn't support Bun yet. The package-lock.json file ensures compatibility.
 
 ## Step 5: Connect Your Domain
 
