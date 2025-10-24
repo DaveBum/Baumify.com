@@ -241,7 +241,7 @@ const Hero = () => {
                 <TerminalTypewriter 
                   text=" We architect, design, and ship elite software - fast."
                   delay={3800}
-                  speed={80}
+                  speed={40}
                 />
               </motion.div>
               

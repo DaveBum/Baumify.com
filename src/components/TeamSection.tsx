@@ -221,9 +221,9 @@ const TeamSection = () => {
                       transition={{ delay: 0.3 }}
                     >
                       <span className={`text-[9px] font-mono font-semibold ${member.accent}`}>
-                        {member.name === "David Baum" ? "System Architect" : 
-                         member.name === "Omer Zalman" ? "AI Engineer" : 
-                         "Automation Engineer"}
+                        {member.name === "David Baum" ? "CEO & Founder" : 
+                         member.name === "Omer Zalman" ? "Chief AI Officer" : 
+                         "Chief Automation Officer"}
                       </span>
                     </motion.div>
                   </div>
