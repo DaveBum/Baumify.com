@@ -202,7 +202,7 @@ const TeamSection = () => {
               viewport={{ once: true }}
             >
               {/* Team Member Row */}
-              <div className={`flex items-start gap-8 ${index % 2 === 1 ? 'flex-row-reverse' : ''}`}>
+              <div className="flex flex-col items-center gap-6">
                 {/* Profile Image */}
                 <motion.div 
                   className="flex-shrink-0"
@@ -221,38 +221,38 @@ const TeamSection = () => {
                 </motion.div>
 
                 {/* Content */}
-                <div className="flex-1 min-w-0">
+                <div className="flex-1 w-full">
                   <motion.div 
-                    className="glass-strong rounded-xl p-6 hover:bg-white/5 transition-all duration-300 border border-white/10 hover:border-white/20"
+                    className="glass-strong rounded-xl p-4 hover:bg-white/5 transition-all duration-300 border border-white/10 hover:border-white/20"
                     whileHover={{ y: -2 }}
                   >
                     {/* Header */}
-                    <div className="mb-6">
-                      <div className="flex flex-row items-center justify-between gap-4 mb-4">
+                    <div className="mb-4">
+                      <div className="flex flex-col items-center text-center gap-3 mb-4">
                         <div>
                           <motion.h3 
-                            className="text-xl font-bold text-white mb-1"
+                            className="text-lg font-bold text-white mb-1"
                             whileHover={{ scale: 1.02 }}
                           >
                             {member.name}
                           </motion.h3>
-                          <div className="text-sm text-white/60 font-medium">
+                          <div className="text-xs text-white/60 font-medium">
                             {member.title}
                           </div>
                         </div>
                         
                         <motion.div 
-                          className="inline-flex items-center px-3 py-1 bg-white/10 rounded-full"
+                          className="inline-flex items-center px-2 py-1 bg-white/10 rounded-full"
                           whileHover={{ scale: 1.05 }}
                         >
-                          <span className="text-xs font-mono text-white/80">{member.role}</span>
+                          <span className="text-[10px] font-mono text-white/80">{member.role}</span>
                         </motion.div>
                       </div>
                     </div>
 
                     {/* Bio */}
                     <motion.p 
-                      className="text-white/70 mb-6 leading-relaxed"
+                      className="text-white/70 mb-4 leading-relaxed text-sm"
                       initial={{ opacity: 0.7 }}
                       whileInView={{ opacity: 1 }}
                       transition={{ duration: 0.5 }}
@@ -262,7 +262,7 @@ const TeamSection = () => {
 
                     {/* Stats */}
                     {member.stats.length > 0 && (
-                      <div className="grid grid-cols-3 gap-4 mb-6 py-4 border-y border-white/10">
+                      <div className="grid grid-cols-3 gap-2 mb-4 py-3 border-y border-white/10">
                       {member.stats.map((stat, statIndex) => (
                         <motion.div 
                           key={stat.label}
@@ -277,7 +277,7 @@ const TeamSection = () => {
                             onClick={() => stat.type && toggleDropdown(stat.type)}
                             whileHover={stat.type ? { scale: 1.05 } : {}}
                           >
-                            <div className={`text-lg font-bold text-white mb-1 flex items-center justify-center gap-1 ${
+                            <div className={`text-base font-bold text-white mb-1 flex items-center justify-center gap-1 ${
                               stat.type ? "hover:text-blue-400" : ""
                             }`}>
                               {stat.value}
@@ -328,13 +328,13 @@ const TeamSection = () => {
                     )}
                     
                     {/* Skills */}
-                    <div className={`mb-6 ${member.stats.length === 0 ? 'pt-6 border-t border-white/10' : ''}`}>
-                      <div className="text-sm font-semibold text-white/80 mb-3">Expertise</div>
-                      <div className="flex flex-wrap gap-2">
+                    <div className={`mb-4 ${member.stats.length === 0 ? 'pt-4 border-t border-white/10' : ''}`}>
+                      <div className="text-xs font-semibold text-white/80 mb-2">Expertise</div>
+                      <div className="flex flex-wrap gap-1.5 justify-center">
                         {member.skills.map((skill, skillIndex) => (
                           <motion.span 
                             key={skill} 
-                            className="px-3 py-1 bg-white/10 text-white/90 text-xs rounded-full border border-white/20 hover:bg-white/20 hover:border-white/30 transition-all cursor-default"
+                            className="px-2 py-0.5 bg-white/10 text-white/90 text-[10px] rounded-full border border-white/20 hover:bg-white/20 hover:border-white/30 transition-all cursor-default"
                             whileHover={{ scale: 1.05, y: -1 }}
                             initial={{ opacity: 0, scale: 0.9 }}
                             whileInView={{ opacity: 1, scale: 1 }}
@@ -348,7 +348,7 @@ const TeamSection = () => {
                     </div>
 
                     {/* Contact Actions */}
-                    <div className="flex flex-row gap-3">
+                    <div className="flex flex-col gap-2">
                       {member.contact.phone && (
                         <motion.div 
                           whileHover={{ scale: 1.02, y: -1 }} 
@@ -359,10 +359,10 @@ const TeamSection = () => {
                             size="sm" 
                             variant="minimal" 
                             asChild 
-                            className="w-full bg-white/10 border-white/20 hover:bg-white/20 hover:border-white/30 text-white"
+                            className="w-full bg-white/10 border-white/20 hover:bg-white/20 hover:border-white/30 text-white text-xs"
                           >
-                            <a href={`tel:${member.contact.phone}`} className="flex items-center justify-center space-x-2">
-                              <Phone className="h-4 w-4" />
+                            <a href={`tel:${member.contact.phone}`} className="flex items-center justify-center space-x-1.5">
+                              <Phone className="h-3 w-3" />
                               <span>Call {member.name.split(' ')[0]}</span>
                             </a>
                           </Button>
@@ -379,10 +379,10 @@ const TeamSection = () => {
                             size="sm" 
                             variant="glass" 
                             asChild 
-                            className="w-full bg-white/5 border-white/10 hover:bg-white/10 text-white hover:text-white"
+                            className="w-full bg-white/5 border-white/10 hover:bg-white/10 text-white hover:text-white text-xs"
                           >
-                            <a href={`mailto:${member.contact.email}`} className="flex items-center justify-center space-x-2 text-white hover:text-white">
-                              <Mail className="h-4 w-4" />
+                            <a href={`mailto:${member.contact.email}`} className="flex items-center justify-center space-x-1.5 text-white hover:text-white">
+                              <Mail className="h-3 w-3" />
                               <span>Email {member.name.split(' ')[0]}</span>
                             </a>
                           </Button>
@@ -397,9 +397,9 @@ const TeamSection = () => {
         </div>
 
         {/* Philosophy Section */}
-        <ScrollReveal delay={0.4} className="mt-24 text-center">
+        <ScrollReveal delay={0.4} className="mt-16 text-center">
           <motion.div 
-            className="glass-strong rounded-2xl p-6 max-w-4xl mx-auto relative overflow-hidden"
+            className="glass-strong rounded-2xl p-4 max-w-4xl mx-auto relative overflow-hidden"
             whileHover={{ scale: 1.02, y: -5 }}
             transition={{ duration: 0.3 }}
           >
@@ -418,7 +418,7 @@ const TeamSection = () => {
             />
             
             <motion.h3 
-              className="text-2xl font-bold mb-6"
+              className="text-xl font-bold mb-4"
               whileInView={{ scale: [0.8, 1.05, 1] }}
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
@@ -426,7 +426,7 @@ const TeamSection = () => {
               Our Philosophy
             </motion.h3>
             <motion.p 
-              className="text-muted-foreground leading-relaxed text-lg"
+              className="text-muted-foreground leading-relaxed text-sm px-2"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               transition={{ delay: 0.2, duration: 0.8 }}
