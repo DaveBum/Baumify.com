@@ -79,11 +79,7 @@ const TeamSection = () => {
       contact: {
         email: "chunklingo@gmail.com"
       },
-      stats: [
-        { label: "Years Building", value: "5+" },
-        { label: "Focus Areas", value: "3" },
-        { label: "Clients Secured", value: "50+" }
-      ],
+      stats: [],
       accent: "text-emerald-400",
       gradientFrom: "from-emerald-500/20",
       gradientTo: "to-teal-500/20"
@@ -205,7 +201,7 @@ const TeamSection = () => {
               <div className="flex flex-col items-center gap-6">
                 {/* Profile Image */}
                 <motion.div 
-                  className="flex-shrink-0"
+                  className="flex-shrink-0 relative"
                   whileHover={{ scale: 1.05 }}
                   transition={{ duration: 0.3 }}
                 >
@@ -217,6 +213,19 @@ const TeamSection = () => {
                         member.name === "David Baum" ? "object-[50%_5%]" : "object-[center_10%]"
                       }`}
                     />
+                    {/* Role Badge */}
+                    <motion.div 
+                      className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 bg-black/90 backdrop-blur-sm border border-white/20 rounded-full px-3 py-1 whitespace-nowrap"
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.3 }}
+                    >
+                      <span className={`text-[9px] font-mono font-semibold ${member.accent}`}>
+                        {member.name === "David Baum" ? "System Architect" : 
+                         member.name === "Omer Zalman" ? "AI Engineer" : 
+                         "Automation Engineer"}
+                      </span>
+                    </motion.div>
                   </div>
                 </motion.div>
 
