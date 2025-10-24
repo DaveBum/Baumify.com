@@ -148,7 +148,7 @@ const TeamSection = () => {
             </motion.div>
             
             <motion.h2 
-              className="text-4xl md:text-6xl font-bold mb-6"
+              className="text-3xl font-bold mb-6"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
@@ -178,7 +178,7 @@ const TeamSection = () => {
             </motion.h2>
             
             <motion.p 
-              className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed"
+              className="text-base text-muted-foreground max-w-3xl mx-auto leading-relaxed px-4"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3, duration: 0.8 }}
@@ -213,7 +213,7 @@ const TeamSection = () => {
                     <motion.img 
                       src={member.image}
                       alt={`${member.name} - ${member.title}`}
-                      className={`w-24 h-24 md:w-32 md:h-32 rounded-full object-cover grayscale hover:grayscale-0 border-2 border-white/20 hover:border-white/40 transition-all duration-500 ${
+                      className={`w-28 h-28 rounded-full object-cover grayscale hover:grayscale-0 border-2 border-white/20 hover:border-white/40 transition-all duration-500 ${
                         member.name === "David Baum" ? "object-[50%_5%]" : "object-[center_10%]"
                       }`}
                     />
@@ -223,15 +223,15 @@ const TeamSection = () => {
                 {/* Content */}
                 <div className="flex-1 min-w-0">
                   <motion.div 
-                    className="glass-strong rounded-xl p-6 md:p-8 hover:bg-white/5 transition-all duration-300 border border-white/10 hover:border-white/20"
+                    className="glass-strong rounded-xl p-6 hover:bg-white/5 transition-all duration-300 border border-white/10 hover:border-white/20"
                     whileHover={{ y: -2 }}
                   >
                     {/* Header */}
                     <div className="mb-6">
-                      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-4">
+                      <div className="flex flex-row items-center justify-between gap-4 mb-4">
                         <div>
                           <motion.h3 
-                            className="text-xl md:text-2xl font-bold text-white mb-1"
+                            className="text-xl font-bold text-white mb-1"
                             whileHover={{ scale: 1.02 }}
                           >
                             {member.name}
@@ -277,7 +277,7 @@ const TeamSection = () => {
                             onClick={() => stat.type && toggleDropdown(stat.type)}
                             whileHover={stat.type ? { scale: 1.05 } : {}}
                           >
-                            <div className={`text-lg md:text-xl font-bold text-white mb-1 flex items-center justify-center gap-1 ${
+                            <div className={`text-lg font-bold text-white mb-1 flex items-center justify-center gap-1 ${
                               stat.type ? "hover:text-blue-400" : ""
                             }`}>
                               {stat.value}
@@ -348,7 +348,7 @@ const TeamSection = () => {
                     </div>
 
                     {/* Contact Actions */}
-                    <div className="flex flex-col sm:flex-row gap-3">
+                    <div className="flex flex-row gap-3">
                       {member.contact.phone && (
                         <motion.div 
                           whileHover={{ scale: 1.02, y: -1 }} 
@@ -399,7 +399,7 @@ const TeamSection = () => {
         {/* Philosophy Section */}
         <ScrollReveal delay={0.4} className="mt-24 text-center">
           <motion.div 
-            className="glass-strong rounded-2xl p-8 md:p-12 max-w-4xl mx-auto relative overflow-hidden"
+            className="glass-strong rounded-2xl p-6 max-w-4xl mx-auto relative overflow-hidden"
             whileHover={{ scale: 1.02, y: -5 }}
             transition={{ duration: 0.3 }}
           >
@@ -418,7 +418,7 @@ const TeamSection = () => {
             />
             
             <motion.h3 
-              className="text-2xl md:text-3xl font-bold mb-6"
+              className="text-2xl font-bold mb-6"
               whileInView={{ scale: [0.8, 1.05, 1] }}
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}

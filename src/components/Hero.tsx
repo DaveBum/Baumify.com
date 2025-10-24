@@ -103,7 +103,7 @@ const Hero = () => {
         variants={containerVariants}
         initial="hidden"
         animate="visible"
-        className="container mx-auto px-6 py-20 text-center relative z-10"
+        className="container mx-auto px-4 py-20 text-center relative z-10"
       >
         {/* Animated Badge */}
         <motion.div 
@@ -132,7 +132,7 @@ const Hero = () => {
         {/* Enhanced Terminal Welcome Message */}
         <div className="mb-12">
           <motion.div 
-            className="relative bg-black/95 backdrop-blur-lg border-2 border-green-500/60 rounded-xl p-8 max-w-5xl mx-auto font-mono text-left overflow-hidden"
+            className="relative bg-black/95 backdrop-blur-lg border-2 border-green-500/60 rounded-xl p-4 max-w-5xl mx-auto font-mono text-left overflow-hidden text-sm"
             initial={{ opacity: 0, y: 50, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             transition={{ delay: 0.3, duration: 1, ease: "easeOut" }}
@@ -194,7 +194,8 @@ const Hero = () => {
             </motion.div>
             
             {/* Terminal Content */}
-            <div className="space-y-3 text-base">
+            <div className="space-y-2 text-xs"
+>
               <motion.div 
                 className="flex items-center text-green-400"
                 initial={{ opacity: 0, x: -10 }}
@@ -209,7 +210,7 @@ const Hero = () => {
               </motion.div>
               
               <motion.div 
-                className="text-white ml-6 text-lg"
+                className="text-white ml-6 text-base"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 1.8 }}
@@ -231,7 +232,7 @@ const Hero = () => {
               </motion.div>
               
               <motion.div 
-                className="text-white/95 ml-6 text-xl md:text-2xl font-light leading-relaxed"
+                className="text-white/95 ml-6 text-base font-light leading-relaxed"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 3.2 }}
@@ -258,7 +259,7 @@ const Hero = () => {
               </motion.div>
               
               <motion.div 
-                className="text-white/90 ml-6 space-y-2 text-sm"
+                className="text-white/90 ml-6 space-y-1 text-xs"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 7.2 }}
@@ -308,8 +309,8 @@ const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 9.5, duration: 0.8 }}
         >
-          <div className="max-w-4xl mx-auto bg-black/80 backdrop-blur-sm border-2 border-green-500/60 rounded-lg p-6 font-mono hover:border-green-500/80 transition-colors duration-300">
-            <div className="flex items-center mb-4 text-green-400/80 text-sm">
+          <div className="max-w-4xl mx-auto bg-black/80 backdrop-blur-sm border-2 border-green-500/60 rounded-lg p-4 font-mono hover:border-green-500/80 transition-colors duration-300 text-xs">
+            <div className="flex items-center mb-3 text-green-400/80 text-xs">
               <span className="text-cyan-400">root@baumify</span>
               <span className="text-white">:</span>
               <span className="text-blue-400">~</span>
@@ -317,7 +318,7 @@ const Hero = () => {
               <span className="ml-2">./execute_contact.sh</span>
             </div>
             
-            <div className="grid md:grid-cols-3 gap-4">
+            <div className="grid grid-cols-3 gap-2">
               {[
                 { 
                   command: "call --now", 
@@ -351,20 +352,20 @@ const Hero = () => {
                 >
                   <motion.a
                     href={item.href}
-                    className="block bg-black/60 border border-white/10 rounded-lg p-4 hover:border-green-500/40 transition-all duration-300 hover:bg-black/80"
+                    className="block bg-black/60 border border-white/10 rounded-lg p-3 hover:border-green-500/40 transition-all duration-300 hover:bg-black/80"
                     whileHover={{ 
                       boxShadow: "0 0 20px rgba(34,197,94,0.2)",
                       y: -3
                     }}
                     whileTap={{ scale: 0.98 }}
                   >
-                    <div className="flex items-center space-x-3 mb-2">
-                      <span className="text-green-400">$</span>
-                      <item.icon className={`h-4 w-4 ${item.color}`} />
-                      <span className={`font-semibold ${item.color}`}>{item.command}</span>
+                    <div className="flex items-center space-x-2 mb-1">
+                      <span className="text-green-400 text-xs">$</span>
+                      <item.icon className={`h-3 w-3 ${item.color}`} />
+                      <span className={`font-semibold text-xs ${item.color}`}>{item.command}</span>
                     </div>
                     
-                    <div className="text-white/70 text-sm ml-6 group-hover:text-white/90 transition-colors">
+                    <div className="text-white/70 text-[10px] ml-5 group-hover:text-white/90 transition-colors leading-tight">
                       {item.description}
                     </div>
                     
@@ -380,14 +381,14 @@ const Hero = () => {
             </div>
             
             <motion.div 
-              className="flex items-center mt-4 pt-3 border-t border-white/10 text-green-400/60 text-sm"
+              className="flex items-center mt-3 pt-2 border-t border-white/10 text-green-400/60 text-[10px]"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 11 }}
             >
               <span>Process completed. Select execution method above ↗</span>
               <motion.span
-                className="inline-block w-2 h-3 bg-green-400 ml-2"
+                className="inline-block w-1.5 h-2.5 bg-green-400 ml-1"
                 animate={{ opacity: [1, 0] }}
                 transition={{ duration: 0.8, repeat: Infinity }}
               />
@@ -397,7 +398,7 @@ const Hero = () => {
 
         {/* Value Cards with 3D Effects */}
         <motion.div variants={itemVariants} className="mb-20">
-          <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+          <div className="grid grid-cols-3 gap-3 max-w-4xl mx-auto">
             {[
               { icon: Target, title: "Design that converts", description: "User-centered experiences that drive measurable results" },
               { icon: Code2, title: "Systems that scale", description: "Architecture built for growth and performance" },
@@ -405,7 +406,7 @@ const Hero = () => {
             ].map((item, index) => (
               <motion.div
                 key={item.title}
-                className="glass-strong rounded-xl p-6 hover:shadow-elegant transition-all duration-500 group cursor-pointer relative overflow-hidden"
+                className="glass-strong rounded-xl p-4 hover:shadow-elegant transition-all duration-500 group cursor-pointer relative overflow-hidden"
                 whileHover={{ scale: 1.05, y: -10 }}
                 whileTap={{ scale: 0.95 }}
                 initial={{ opacity: 0, y: 50 }}
@@ -413,16 +414,16 @@ const Hero = () => {
                 transition={{ delay: 2 + index * 0.2, duration: 0.8 }}
               >
                 <motion.div 
-                  className="inline-flex p-3 rounded-lg bg-gradient-subtle mb-4"
+                  className="inline-flex p-2 rounded-lg bg-gradient-subtle mb-3"
                   whileHover={{ rotate: [0, -10, 10, 0], scale: 1.1 }}
                   transition={{ duration: 0.5 }}
                 >
-                  <item.icon className="h-6 w-6 text-white" />
+                  <item.icon className="h-5 w-5 text-white" />
                 </motion.div>
-                <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors">
+                <h3 className="text-base font-semibold mb-2 group-hover:text-primary transition-colors">
                   {item.title}
                 </h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">
+                <p className="text-muted-foreground text-xs leading-relaxed">
                   {item.description}
                 </p>
               </motion.div>

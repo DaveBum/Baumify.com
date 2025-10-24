@@ -64,6 +64,29 @@
   body {
     @apply bg-background text-foreground font-inter antialiased;
     font-feature-settings: 'rlig' 1, 'calt' 1;
+    /* Prevent content stretching on mobile */
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Ensure consistent viewport behavior */
+  html {
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+  }
+
+  /* Prevent text size adjustments on mobile */
+  html, body {
+    -webkit-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+
+  /* Fix mobile viewport height issues */
+  #root {
+    min-height: 100vh;
+    min-height: -webkit-fill-available;
   }
 }
 
