@@ -347,11 +347,18 @@ const TeamSection = () => {
                     </div>
 
                     {/* Contact Actions - Stack on mobile for readability */}
-                    <div className="flex flex-col gap-2">
+                    <div className="flex flex-col gap-2 w-full">
                       {member.contact.phone && (
                         <a 
                           href={`tel:${member.contact.phone}`} 
-                          className="w-full flex items-center justify-center gap-2 bg-white/10 border border-white/20 hover:bg-white/20 hover:border-white/30 text-white rounded-lg h-11 px-4 transition-all text-sm font-medium"
+                          className="w-full flex items-center justify-center gap-2 bg-white/10 border border-white/20 hover:bg-white/20 hover:border-white/30 text-white rounded-lg px-4 transition-all"
+                          style={{ 
+                            height: '44px',
+                            fontSize: '16px',
+                            fontWeight: '500',
+                            WebkitTextSizeAdjust: '100%',
+                            textSizeAdjust: '100%'
+                          }}
                         >
                           <Phone className="h-4 w-4 flex-shrink-0" />
                           <span>Call</span>
@@ -361,7 +368,14 @@ const TeamSection = () => {
                       {member.contact.email && (
                         <a 
                           href={`mailto:${member.contact.email}`} 
-                          className="w-full flex items-center justify-center gap-2 bg-white/5 border border-white/10 hover:bg-white/10 hover:border-white/30 text-white rounded-lg h-11 px-4 transition-all text-sm font-medium"
+                          className="w-full flex items-center justify-center gap-2 bg-white/5 border border-white/10 hover:bg-white/10 hover:border-white/30 text-white rounded-lg px-4 transition-all"
+                          style={{ 
+                            height: '44px',
+                            fontSize: '16px',
+                            fontWeight: '500',
+                            WebkitTextSizeAdjust: '100%',
+                            textSizeAdjust: '100%'
+                          }}
                         >
                           <Mail className="h-4 w-4 flex-shrink-0" />
                           <span>Email</span>
