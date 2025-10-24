@@ -197,8 +197,11 @@ const TeamSection = () => {
               transition={{ delay: index * 0.2, duration: 0.6 }}
               viewport={{ once: true }}
             >
-              {/* Team Member Row */}
-              <div className="flex flex-col items-center gap-6">
+              {/* Team Member Row - Mobile: Stack vertically, Desktop: Alternate left/right */}
+              <div className={`flex flex-col items-center gap-6 ${
+                // Desktop only: David (0) and Akiva (2) on right, Omer (1) on left
+                index === 1 ? 'md:flex-row' : 'md:flex-row-reverse'
+              }`}>
                 {/* Profile Image */}
                 <motion.div 
                   className="flex-shrink-0 relative"
@@ -213,19 +216,6 @@ const TeamSection = () => {
                         member.name === "David Baum" ? "object-[50%_5%]" : "object-[center_10%]"
                       }`}
                     />
-                    {/* Role Badge */}
-                    <motion.div 
-                      className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 bg-black/90 backdrop-blur-sm border border-white/20 rounded-full px-3 py-1 whitespace-nowrap"
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: 0.3 }}
-                    >
-                      <span className={`text-[9px] font-mono font-semibold ${member.accent}`}>
-                        {member.name === "David Baum" ? "CEO & Founder" : 
-                         member.name === "Omer Zalman" ? "Chief AI Officer" : 
-                         "Chief Automation Officer"}
-                      </span>
-                    </motion.div>
                   </div>
                 </motion.div>
 
@@ -356,46 +346,26 @@ const TeamSection = () => {
                       </div>
                     </div>
 
-                    {/* Contact Actions */}
+                    {/* Contact Actions - Stack on mobile for readability */}
                     <div className="flex flex-col gap-2">
                       {member.contact.phone && (
-                        <motion.div 
-                          whileHover={{ scale: 1.02, y: -1 }} 
-                          whileTap={{ scale: 0.98 }}
-                          className="flex-1"
+                        <a 
+                          href={`tel:${member.contact.phone}`} 
+                          className="w-full flex items-center justify-center gap-2 bg-white/10 border border-white/20 hover:bg-white/20 hover:border-white/30 text-white rounded-lg h-11 px-4 transition-all text-sm font-medium"
                         >
-                          <Button 
-                            size="sm" 
-                            variant="minimal" 
-                            asChild 
-                            className="w-full bg-white/10 border-white/20 hover:bg-white/20 hover:border-white/30 text-white text-xs"
-                          >
-                            <a href={`tel:${member.contact.phone}`} className="flex items-center justify-center space-x-1.5">
-                              <Phone className="h-3 w-3" />
-                              <span>Call {member.name.split(' ')[0]}</span>
-                            </a>
-                          </Button>
-                        </motion.div>
+                          <Phone className="h-4 w-4 flex-shrink-0" />
+                          <span>Call</span>
+                        </a>
                       )}
                       
                       {member.contact.email && (
-                        <motion.div 
-                          whileHover={{ scale: 1.02, y: -1 }} 
-                          whileTap={{ scale: 0.98 }}
-                          className="flex-1"
+                        <a 
+                          href={`mailto:${member.contact.email}`} 
+                          className="w-full flex items-center justify-center gap-2 bg-white/5 border border-white/10 hover:bg-white/10 hover:border-white/30 text-white rounded-lg h-11 px-4 transition-all text-sm font-medium"
                         >
-                          <Button 
-                            size="sm" 
-                            variant="glass" 
-                            asChild 
-                            className="w-full bg-white/5 border-white/10 hover:bg-white/10 text-white hover:text-white text-xs"
-                          >
-                            <a href={`mailto:${member.contact.email}`} className="flex items-center justify-center space-x-1.5 text-white hover:text-white">
-                              <Mail className="h-3 w-3" />
-                              <span>Email {member.name.split(' ')[0]}</span>
-                            </a>
-                          </Button>
-                        </motion.div>
+                          <Mail className="h-4 w-4 flex-shrink-0" />
+                          <span>Email</span>
+                        </a>
                       )}
                     </div>
                   </motion.div>
