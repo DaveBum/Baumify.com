@@ -13,33 +13,36 @@ Allow: /
 User-agent: *
 Allow: /
 Disallow: /api/
-Disallow: /*.json$
-Disallow: /private/
 
-# Crawl-delay
-Crawl-delay: 0
-
-# Sitemap
+# Primary Sitemap
 Sitemap: https://baumify.com/sitemap.xml
 
-# Special rules for Google
+# Special rules for Google - Maximum Crawling
 User-agent: Googlebot
 Allow: /
 Disallow: /api/
+Crawl-delay: 0
 
-# Special rules for Bing
+# Special rules for Bing - Maximum Crawling
 User-agent: Bingbot
 Allow: /
 Disallow: /api/
+Crawl-delay: 0
 
-# Block bad bots
-User-agent: AhrefsBot
-Disallow: /
+# Allow all major search engines
+User-agent: Slurp
+Allow: /
 
-User-agent: SemrushBot
-Crawl-delay: 10
+User-agent: DuckDuckBot
+Allow: /
 
-# Allow social media crawlers
+User-agent: Baiduspider
+Allow: /
+
+User-agent: YandexBot
+Allow: /
+
+# Allow social media crawlers for sharing
 User-agent: Twitterbot
 Allow: /
 
@@ -48,3 +51,22 @@ Allow: /
 
 User-agent: LinkedInBot
 Allow: /
+
+User-agent: WhatsApp
+Allow: /
+
+User-agent: TelegramBot
+Allow: /
+
+# Block bad bots
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Crawl-delay: 10
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
